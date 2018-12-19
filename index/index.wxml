@@ -1,0 +1,48 @@
+<view class='topbtn'>
+  <button>推送设置</button>
+</view>
+
+ 
+ 
+ 
+
+<view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item search">
+    <input type='text' placeholder='项目名称模糊搜索'></input><icon type='search'></icon>
+    </view>
+</view>
+
+<view class='swiperbox'>
+  <swiper
+  indicator-dots="true"
+  autoplay="true"
+  interval="5000"
+  duration="700"
+>
+  <block wx:for="{{imgUrls}}" wx:key="{{item}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+</view>
+
+<view class="citybox">
+  <view class="flex-wrp">
+    <view class="flex-item ctbox1">
+      宜宾
+    </view>
+    <view class="flex-item ctbox2">
+      泸州
+    </view>
+    <view class="flex-item ctbox3">
+      乐山
+    </view>
+    <view class="flex-item ctbox4">
+      自贡
+    </view>
+    <view class="flex-item ctbox5">
+      内江
+    </view>
+  </view>
+</view>

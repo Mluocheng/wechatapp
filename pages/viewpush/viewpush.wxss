@@ -1,0 +1,59 @@
+/* pages/viewpush/viewpush.wxss */
+/* 全局 */
+.box{
+  width: 95%;
+  margin: 10px auto;
+  font-size: 14px;
+}
+.lf{float: left}
+.rf{float: right}
+.clearfloat{
+  clear: both
+}
+/* 标题 */
+.title{
+  text-align: center;
+  font-size: 16px;
+  color: #1a6cc1;
+  font-weight: 700;
+}
+.section_data{
+  text-decoration: underline;
+  color: #a7a7a7;
+  font-size: 14px;
+}
+/* 内容 */
+.section .section_data{
+  margin: 10px auto;
+}
+.section .flex-item{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+  .section .itmeandmoney{
+    margin: 5px auto;
+  }
+.section .requirement{
+  color: #1a6cc1;
+}
+.section .flex-item>view{
+  margin-top:10px;
+  margin-bottom: 10px; 
+}
+.section .requirement text{
+  color: #fff;
+  display: inline-block;
+  background-color: #1a6cc1;
+  width: 70px;
+  border-radius:30px; 
+  text-align: center;
+  margin-right: 10px;
+}
+.section .item_conter,.section .requirement text{
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow: hidden;
+}
+.bgcolor{
+  background-color: #c3c3c3;
+}

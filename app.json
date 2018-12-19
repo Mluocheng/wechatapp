@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "index/index",
+    "pages",
+    "pages/viewpush/viewpush",
+    "pages/signin/signin"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black",
+    "navigationStyle":"custom"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "borderStyle": "black",
+    "selectedColor": "#2196f3",
+    "position":"bottom",
+    "list": [
+      
+      {
+        "text": "查看推送",
+        "pagePath":"pages/viewpush/viewpush",
+        "iconPath":"images/icon_homepage_unselected@3x.png",
+        "selectedIconPath":"images/icon_homepage_selected@3x.png"
+      },
+      {
+        "text": "首页",
+        "pagePath": "index/index",
+        "iconPath": "images/icon_unselected_company@2x.png",
+        "selectedIconPath": "images/icon_selected_company@2x.png"
+      },
+      {
+        "text": "登录",
+        "pagePath": "pages/signin/signin",
+        "iconPath": "images/icon_unselected_personal@3x.png",
+        "selectedIconPath": "images/icon_selected_personal@3x.png"
+      }
+    ]
+  }
+}

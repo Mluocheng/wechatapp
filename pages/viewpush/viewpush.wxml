@@ -1,0 +1,131 @@
+<view class='box title'>
+  我收到的推送信息
+</view>
+
+<view class="section box">
+  <view class="section_data">2018/12/11</view>
+  <view class="flex-wrp">
+    <view class="flex-item bgcolor">
+         <view class='itmeandmoney'>
+            <view class='left_time lf'>
+              报名截止时间:<text>2019-1-4</text>
+            </view>
+            <view class='rightmoner rf'>
+              项目金额： <text>3500万</text>
+            </view>
+         </view>
+         <view class='clearfloat'></view>
+         <view class='item_conter'>
+              宜宾市s水库市s水库市s水库市s水库市s水库工程
+         </view>
+         <view class='requirement'>
+              <view> <text>资质要求</text>    公路工程施工总承包s三级资质</view>
+             
+         </view>
+    </view>
+
+    <view class="flex-item">
+    <view class='itmeandmoney'>
+            <view class='left_time lf'>
+              报名截止时间:<text>2019-1-4</text>
+            </view>
+            <view class='rightmoner rf'>
+              项目金额： <text>3500万</text>
+            </view>
+         </view>
+         <view class='clearfloat'></view>
+         <view class='item_conter'>
+              宜宾市s水库市s水库市s水库市s水库市s水库工程
+         </view>
+         <view class='requirement'>
+              <view> <text>资质要求</text>    公路工程施工总承包s三级资质</view>
+             
+         </view>
+    </view>
+
+
+    <view class="flex-item bgcolor">
+   <view class='itmeandmoney'>
+            <view class='left_time lf'>
+              报名截止时间:<text>2019-1-4</text>
+            </view>
+            <view class='rightmoner rf'>
+              项目金额： <text>3500万</text>
+            </view>
+         </view>
+         <view class='clearfloat'></view>
+         <view class='item_conter'>
+              宜宾市s水库市s水库市s水库市s水库市s水库工程
+         </view>
+         <view class='requirement'>
+              <view> <text>资质要求</text>    公路工程施工总承包s三级资质</view>
+             
+         </view>
+    </view>
+  </view>
+</view>
+
+
+
+<view class="section box">
+  <view class="section_data">2018/12/11</view>
+  <view class="flex-wrp">
+    <view class="flex-item bgcolor">
+         <view class='itmeandmoney'>
+            <view class='left_time lf'>
+              报名截止时间:<text>2019-1-4</text>
+            </view>
+            <view class='rightmoner rf'>
+              项目金额： <text>3500万</text>
+            </view>
+         </view>
+         <view class='clearfloat'></view>
+         <view class='item_conter'>
+              宜宾市s水库市s水库市s水库市s水库市s水库工程
+         </view>
+         <view class='requirement'>
+              <view> <text>资质要求</text>    公路工程施工总承包s三级资质</view>
+             
+         </view>
+    </view>
+
+    <view class="flex-item">
+    <view class='itmeandmoney'>
+            <view class='left_time lf'>
+              报名截止时间:<text>2019-1-4</text>
+            </view>
+            <view class='rightmoner rf'>
+              项目金额： <text>3500万</text>
+            </view>
+         </view>
+         <view class='clearfloat'></view>
+         <view class='item_conter'>
+              宜宾市s水库市s水库市s水库市s水库市s水库工程
+         </view>
+         <view class='requirement'>
+              <view> <text>资质要求</text>    公路工程施工总承包s三级资质</view>
+             
+         </view>
+    </view>
+
+
+    <view class="flex-item bgcolor">
+   <view class='itmeandmoney'>
+            <view class='left_time lf'>
+              报名截止时间:<text>2019-1-4</text>
+            </view>
+            <view class='rightmoner rf'>
+              项目金额： <text>3500万</text>
+            </view>
+         </view>
+         <view class='clearfloat'></view>
+         <view class='item_conter'>
+              宜宾市s水库市s水库市s水库市s水库市s水库工程
+         </view>
+         <view class='requirement'>
+              <view> <text>资质要求</text>    公路工程施工总承包s三级资质</view>
+             
+         </view>
+    </view>
+  </view>
+</view>

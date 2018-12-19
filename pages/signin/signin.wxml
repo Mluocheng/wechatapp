@@ -1,0 +1,38 @@
+<!--pages/signin/signin.wxml-->
+<view class='signinbox'>
+<!-- 用户 -->
+  <view class='signlogin'>
+      <view class='headerigm'>
+        <view class='imgname'><image src='../../images/icon_homepage_selected@3x.png'></image></view>
+        <text>个人昵称</text>
+      </view>
+      <view class='buttonbox'>
+        <view> <button>登录/注册</button></view>
+        <view> <button>退出登录</button></view>
+      </view>
+       
+  </view>
+  <!-- 常用功能 -->
+  <view class='commonlyuse'>
+      <view class='ittleuse'>常用功能</view>
+      <view class='commonlyitem_box'>
+        <view class='commonlyitem_list'>
+            <button>
+           应  用
+            <text>指  南</text> 
+            </button>
+        </view>
+        <view class='commonlyitem_list'>
+            <button>
+              缓  存 
+              <text>清  理</text> 
+            </button>
+        </view>
+        <view class='commonlyitem_list'>
+            <button>
+              信  息<text>收  藏</text> 
+            </button>
+        </view>
+      </view>
+  </view>
+</view>
