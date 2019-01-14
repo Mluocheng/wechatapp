@@ -1,0 +1,50 @@
+ <view class="container" style="padding-top:{{statusBarHeight}}px">
+  <view class="header">
+  <view>
+    <button plain="false" bindtap="goto" class='iconfont icon-zuojiantou' hover-class='hoverbtnsty' hover-stay-time="700"></button>
+    </view>
+  </view>
+</view>
+<view style='margin-top:{{statusBarHeight + 60}}px'></view>
+
+<view class='box'>
+<!-- bindsubmit《携带form中的数据发生submit事件》 bindreset《表单重置时触发reset事件》  -->
+<form bindsubmit="formSubmit" bindreset="formReset" >
+ <view class='formgroup'>
+  <view class='lf formlistlable'>第一组</view>
+  <input name="input1" class='lf' placeholder='请输入推送内容' placeholder-class='placesty'></input>
+ </view>
+ 
+ <view class='formgroup'>
+  <view class='lf formlistlable'>第二组</view>
+  <input  name="input2" class='lf' placeholder='请输入推送内容' placeholder-class='placesty'></input>
+ </view>
+
+ <view class='formgroup'>
+  <view class='lf formlistlable'>第三组</view>
+  <input name="input3" class='lf' placeholder='请输入推送内容' placeholder-class='placesty'></input>
+ </view>
+
+ <view class='formgroup'>
+  <view class='lf formlistlable'>第四组</view>
+  <input name="input4" class='lf' placeholder='请输入推送内容' placeholder-class='placesty'></input>
+ </view>
+
+ <view class='formgroup'>
+  <view class='lf formlistlable'>第五组</view>
+  <input name="input5" class='lf' placeholder='请输入推送内容' placeholder-class='placesty'></input>
+ </view>
+
+ <view class='formgroup'>
+  <view class='lf formlistlable'>第六组</view>
+  <input name="input6" class='lf' placeholder='请输入推送内容' placeholder-class='placesty'></input>
+ </view>
+
+
+
+  
+  <view class="btn-area">
+    <button formType="submit">确认</button>
+  </view>
+</form>
+</view>

@@ -1,131 +1,57 @@
-<view class='box title'>
-  我收到的推送信息
+<view class="container" style="padding-top:{{statusBarHeight}}px">
+  <view class="header">
+    <view class='title'>
+      查看推送
+    </view>
+  </view>
 </view>
+<view style='margin-top:{{statusBarHeight + 60}}px'></view>
 
-<view class="section box">
-  <view class="section_data">2018/12/11</view>
+<view wx:if="{{btn_show}}" class="section box" wx:for="{{projectlistdata.data.onlyRegion}}" wx:key="{{item.pushTime}}">
+  <view class="section_data">
+    {{item.pushTime}}
+  </view>
   <view class="flex-wrp">
-    <view class="flex-item bgcolor">
-         <view class='itmeandmoney'>
-            <view class='left_time lf'>
-              报名截止时间:<text>2019-1-4</text>
-            </view>
-            <view class='rightmoner rf'>
-              项目金额： <text>3500万</text>
-            </view>
-         </view>
-         <view class='clearfloat'></view>
-         <view class='item_conter'>
-              宜宾市s水库市s水库市s水库市s水库市s水库工程
-         </view>
-         <view class='requirement'>
-              <view> <text>资质要求</text>    公路工程施工总承包s三级资质</view>
-             
-         </view>
-    </view>
-
-    <view class="flex-item">
-    <view class='itmeandmoney'>
-            <view class='left_time lf'>
-              报名截止时间:<text>2019-1-4</text>
-            </view>
-            <view class='rightmoner rf'>
-              项目金额： <text>3500万</text>
-            </view>
-         </view>
-         <view class='clearfloat'></view>
-         <view class='item_conter'>
-              宜宾市s水库市s水库市s水库市s水库市s水库工程
-         </view>
-         <view class='requirement'>
-              <view> <text>资质要求</text>    公路工程施工总承包s三级资质</view>
-             
-         </view>
-    </view>
-
-
-    <view class="flex-item bgcolor">
-   <view class='itmeandmoney'>
-            <view class='left_time lf'>
-              报名截止时间:<text>2019-1-4</text>
-            </view>
-            <view class='rightmoner rf'>
-              项目金额： <text>3500万</text>
-            </view>
-         </view>
-         <view class='clearfloat'></view>
-         <view class='item_conter'>
-              宜宾市s水库市s水库市s水库市s水库市s水库工程
-         </view>
-         <view class='requirement'>
-              <view> <text>资质要求</text>    公路工程施工总承包s三级资质</view>
-             
-         </view>
+    <view bindtap='projectlistclick' class="flex-item bgcolor" wx:for="{{item.pushList}}" wx:key="{{item.id}}" data-articleid="{{item.id}}">
+      <view class='itmeandmoney'>
+        <view class='left_time lf'>
+          报名截止时间:
+          <text class='timemoneycolcor'>{{item.applyEndDate}}</text>
+        </view>
+        <view class='rightmoner rf'>
+          项目金额：
+          <text class='timemoneycolcor'>{{item.projectFunds}}万</text>
+        </view>
+      </view>
+      <view class='clearfloat'></view>
+      <view class='item_conter'>
+        {{item.title}}
+      </view>
+      <view class='requirement'>
+        <view>
+          <text>资质要求</text> {{item.quaRequirement}}</view>
+      </view>
     </view>
   </view>
 </view>
 
+<view class='nothing' wx:if="{{!btn_show}}">
+  <view>
+    <image src='../../images/request_error_1@2x.png'></image>
+  </view>
+  <view>
+    这里还什么都没有哦
+  </view>
+  <view>
+  先登录试试！
+  </view>
+</view>
 
-
-<view class="section box">
-  <view class="section_data">2018/12/11</view>
-  <view class="flex-wrp">
-    <view class="flex-item bgcolor">
-         <view class='itmeandmoney'>
-            <view class='left_time lf'>
-              报名截止时间:<text>2019-1-4</text>
-            </view>
-            <view class='rightmoner rf'>
-              项目金额： <text>3500万</text>
-            </view>
-         </view>
-         <view class='clearfloat'></view>
-         <view class='item_conter'>
-              宜宾市s水库市s水库市s水库市s水库市s水库工程
-         </view>
-         <view class='requirement'>
-              <view> <text>资质要求</text>    公路工程施工总承包s三级资质</view>
-             
-         </view>
-    </view>
-
-    <view class="flex-item">
-    <view class='itmeandmoney'>
-            <view class='left_time lf'>
-              报名截止时间:<text>2019-1-4</text>
-            </view>
-            <view class='rightmoner rf'>
-              项目金额： <text>3500万</text>
-            </view>
-         </view>
-         <view class='clearfloat'></view>
-         <view class='item_conter'>
-              宜宾市s水库市s水库市s水库市s水库市s水库工程
-         </view>
-         <view class='requirement'>
-              <view> <text>资质要求</text>    公路工程施工总承包s三级资质</view>
-             
-         </view>
-    </view>
-
-
-    <view class="flex-item bgcolor">
-   <view class='itmeandmoney'>
-            <view class='left_time lf'>
-              报名截止时间:<text>2019-1-4</text>
-            </view>
-            <view class='rightmoner rf'>
-              项目金额： <text>3500万</text>
-            </view>
-         </view>
-         <view class='clearfloat'></view>
-         <view class='item_conter'>
-              宜宾市s水库市s水库市s水库市s水库市s水库工程
-         </view>
-         <view class='requirement'>
-              <view> <text>资质要求</text>    公路工程施工总承包s三级资质</view>
-             
-         </view>
-    </view>
+<view class='nothing' wx:if="{{btn_show && projectlistdata.data.onlyRegion==0}}">
+  <view>
+    <image src='../../images/request_error_1@2x.png'></image>
+  </view>
+  <view>
+    暂时没有数据！
   </view>
 </view>

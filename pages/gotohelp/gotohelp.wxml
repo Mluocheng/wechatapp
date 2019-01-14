@@ -1,0 +1,17 @@
+<!--pages/signin/signin.wxml-->
+<view class="container" style="padding-top:{{statusBarHeight}}px">
+  <view class="header">
+    <view>
+      <button plain="false" bindtap="goto" class='iconfont icon-zuojiantou' hover-class='hoverbtnsty' hover-stay-time="700"></button>
+    </view>
+    <view class='titlebtn'>
+      操作手册
+    </view>
+    <view style='width:52px;'></view>
+  </view>
+</view>
+<view style='margin-top:{{statusBarHeight + 40}}px'></view>
+
+
+
+<image src='../../images/OperationManual@2x.png'></image> 

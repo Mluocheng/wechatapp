@@ -1,0 +1,64 @@
+<view class="container" style="padding-top:{{statusBarHeight}}px">
+  <view class="header">
+    <view>
+      <button plain="false" bindtap="goto" class='iconfont icon-zuojiantou' hover-class='hoverbtnsty' hover-stay-time="700"></button>
+    </view>
+  </view>
+</view>
+<view style='margin-top:{{statusBarHeight + 60}}px'></view>
+<!-- title -->
+<view class='box title'>
+  {{projectregion}}市项目详情
+</view>
+<!-- project list -->
+<view class="section box">
+  <view class="flex-wrp" wx:for="{{project.data.onlyRegion}}" wx:key="{{item.id}}">
+    <!-- listitem -->
+    <view class="flex-item bgcolor" wx:if="{{index % 2 == 0}}" bindtap='gotoprojectdetail' data-articleId="{{item.id}}">
+      <view class='itmeandmoney'>
+        <view class='left_time lf'>
+          报名截止时间:
+          <text class='timemoneycolcor'>{{item.applyEndDate}}</text>
+        </view>
+        <view class='rightmoner rf'>
+          项目金额：
+          <text class='timemoneycolcor'>{{item.projectFunds}}万</text>
+        </view>
+      </view>
+      <view class='clearfloat'></view>
+      <view class='item_conter'>
+        {{item.title}}{{item.id}}
+      </view>
+      <view class='requirement'>
+        <view>
+          <text>资质要求</text>{{item.quaRequirement}}
+          <image wx:if="{{item.isCorrect}}" class='rf' src='../../images/icon_tender@2x.png'></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="flex-item" wx:else="{{index % 2 == 1}}" bindtap='gotoprojectdetail' data-articleid="{{item.id}}">
+      <view class='itmeandmoney'>
+        <view class='left_time lf'>
+          报名截止时间:
+          <text class='timemoneycolcor'>{{item.applyEndDate}}</text>
+        </view>
+        <view class='rightmoner rf'>
+          项目金额：
+          <text class='timemoneycolcor'>{{item.projectFunds}}万</text>
+        </view>
+      </view>
+      <view class='clearfloat'></view>
+      <view class='item_conter'>
+        {{item.title}}
+      </view>
+      <view class='requirement'>
+        <view>
+          <text>资质要求</text>{{item.quaRequirement}}
+          <image wx:if="{{item.isCorrect}}" class='rf' src='../../images/icon_tender@2x.png'></image>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

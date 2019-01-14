@@ -1,0 +1,108 @@
+.container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.container, .header {
+  background-color: #2196f3;
+}
+
+.box {
+  width: 95%;
+  margin: 20rpx auto;
+  font-size: 28rpx;
+}
+
+.lf {
+  float: left;
+}
+
+.rf {
+  float: right;
+}
+
+.clearfloat {
+  clear: both;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  height: 80rpx;
+}
+
+.header button {
+  font-size: 32rpx;
+  height: 80rpx;
+  display: inline-block;
+  line-height: 80rpx;
+  background-color: transparent;
+  border-color: #2196f3;
+  color: #fff;
+}
+.hoverbtnsty{
+  color: rgb(182, 182, 182)
+}
+
+.title {
+  text-align: center;
+  font-size: 32rpx;
+  color: #38f;
+  font-weight: 700;
+}
+
+.section .flex-item {
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.section .itmeandmoney {
+  margin: 10rpx auto;
+}
+
+.section .requirement {
+  color: #38f;
+}
+
+.section .flex-item>view {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.section .requirement text {
+  color: #fff;
+  display: inline-block;
+  background-color: #38f;
+  width: 140rpx;
+  border-radius: 60rpx;
+  text-align: center;
+  margin-right: 20rpx;
+}
+
+.section .requirement image {
+  width: 120rpx;
+  height: 24rpx;
+  text-align: right;
+}
+
+.section .item_conter, .section .requirement text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.section .item_conter {
+  color: #a7a7a7;
+}
+
+.bgcolor {
+  background-color: #e4e4e4;
+}
+
+.timemoneycolcor {
+  color: #ff9800;
+}

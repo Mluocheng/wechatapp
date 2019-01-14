@@ -1,76 +1,133 @@
-/* pages/signin/signin.wxss */
-.signinbox{
-  width: 95%;
-  margin: 20px auto;
-}
-.signlogin{
-  width: 100%;
-  height: 300px;
-  border: 1px solid #000;
+.container, .header {
   background-color: #2196f3;
-  position: relative; 
-  border-radius:10px; 
-  color: #fff;
 }
-.signlogin .headerigm{
-position: absolute;
-top: -20px;
-left: 20px;
-font-size: 16px;
+
+.container {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
-.signlogin .imgname{
-  width: 70px;
-  height: 70px;
-  border: 1px solid #000;
+
+.signinbox {
+  width: 95%;
+  margin: 60rpx auto;
+}
+
+.signlogin {
+  width: 100%;
+  height: 500rpx;
+  position: relative;
+  border-radius: 20rpx;
+  color: #000;
+  background-color: #f8f8f8;
+  border: 1px solid #dcdcdc;
+}
+
+.signlogin .headerigm {
+  position: absolute;
+  top: -40rpx;
+  width: 20%;
+  left: 50%;
+  margin-left: -10%;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.signlogin .imgname {
+  width: 140rpx;
+  height: 140rpx;
   border-radius: 50%;
-  display: inline-block
+  display: inline-block;
+  margin-bottom: 80rpx;
 }
-.signlogin image{
-  width:100%;
+
+.signlogin image {
+  width: 100%;
   height: 100%;
- border-radius: 50%;
+  border-radius: 50%;
 }
-.signlogin .buttonbox{
+
+.signlogin .buttonbox {
   width: 100%;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: space-around;
   position: absolute;
   bottom: 10%;
 }
-.signlogin .buttonbox button{
-  font-size: 14px;
+
+.signlogin .buttonbox button {
+  font-size: 28rpx;
   color: #fff;
-  border: 1px solid #000;
-  background-color: #faae3d;
-  border-radius: 5px;
-  width: 100px;
+  background-color: #377dff;
+  border-radius: 10rpx;
+  width: 200rpx;
+}
+.signlogin .buttonbox modal view{
+  margin: 10px auto;
+   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.signlogin .buttonbox input{
+  display: inline-block;
+  border:1px solid #ddd;
+border-radius:5px;
+height: 25px;
+}
+.placesty{
+  color: #ddd;
+}
+.signlogin .buttonbox modal button{
+  float: right;
+  width: 165rpx;
+font-size: 21rpx;
+}
+.signlogin .buttonbox button.onlogin{
+background-color: #adadad;
 }
 
-/* 功能 */
-.commonlyuse{
+.commonlyuse {
   color: #000;
-  font-size: 14px;
-  margin: 20px auto;
+  font-size: 28rpx;
+  margin: 40rpx auto;
 }
-.commonlyitem_box{
-   display: flex;
-  flex-direction:row;
+
+.commonlyuse .ittleuse {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.commonlyitem_box {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content:  space-around;
+  justify-content: space-around;
 }
-.commonlyuse .ittleuse{
-  margin-top: 20px;
-  margin-bottom: 20px;
-  }
-.commonlyitem_box button{
-  width:70px;
-  height: 70px;
-  border-radius: 50%;
-  border: 5px solid #b7b7b7; 
-  font-size: 24rpx;
+
+.commonlyitem_box .commonlyitem_list {
+  height: 230rpx;
+  border-radius: 10rpx;
+  background-color: #ebfbff;
   text-align: center;
-  line-height: 22px;
- padding-top: 7px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
- 
+
+.commonlyitem_box .commonlyitem_list image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.commonlyitem_box navigator {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #2196f3;
+}
+
+.commonlyitem_listco navigator {
+  color: #4b4b4b;
+}

@@ -1,0 +1,46 @@
+<view class="container" style="padding-top:{{statusBarHeight}}px">
+  <view class="header">
+    <view>
+      <button plain="false" bindtap="goto" class='iconfont icon-zuojiantou' hover-class='hoverbtnsty' hover-stay-time="700"></button>
+    </view>
+  </view>
+</view>
+<view style='margin-top:{{statusBarHeight + 60}}px'></view>
+
+
+<view class='box title'>
+  <view class='titlekeyword'>
+    <view class='titlekeywordlist keyword'>关键词</view>
+    <view class='titlekeywordlist bon'>宜宾</view>
+    <view class='titlekeywordlist bon'>工程</view>
+  </view>
+  <view class='search'>
+    <input auto-focus='true' type='text' placeholder='输入内容' placeholder-class='placeholdersty' bindconfirm="confirmvalue" bindblur="blurvalue"></input>
+  </view>
+</view>
+
+<view class="section box">
+  <view class="flex-wrp">
+    <view class="flex-item bgcolor" wx:for="{{projectlistdata.data.onlyRegion}}" wx:key="{{item.id}}" data-articleid="{{item.id}}" bindtap='gotoprojectdetail'>
+      <view class='itmeandmoney'>
+        <view class='left_time lf'>
+          报名截止时间:
+          <text class='timemoneycolcor'>{{item.applyEndDate}}</text>
+        </view>
+        <view class='rightmoner rf'>
+          项目金额：
+          <text class='timemoneycolcor'>{{item.projectFunds}}万</text>
+        </view>
+      </view>
+      <view class='clearfloat'></view>
+      <view class='item_conter'>
+        {{item.title}}
+      </view>
+      <view class='requirement'>
+        <view>
+          <text>资质要求</text> {{item.quaRequirement}}</view>
+
+      </view>
+    </view>
+  </view>
+</view>

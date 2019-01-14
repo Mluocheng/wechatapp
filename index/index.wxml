@@ -1,48 +1,30 @@
-<view class='topbtn'>
-  <button>推送设置</button>
+<view class="container" style="padding-top:{{statusBarHeight}}px">
+  <view class="header">
+  </view>
 </view>
-
- 
- 
- 
+<view style='margin-top:{{statusBarHeight + 60}}px'></view>
 
 <view class="flex-wrp" style="flex-direction:row;">
-    <view class="flex-item search">
-    <input type='text' placeholder='项目名称模糊搜索'></input><icon type='search'></icon>
-    </view>
+  <view class="flex-item search">
+    <input bindfocus="bangfocusgoto" type='text' placeholder='项目模糊搜索' placeholder-class='centerplaceholder'></input>
+    <!-- <icon type='search'></icon>-->
+  </view>
 </view>
 
 <view class='swiperbox'>
-  <swiper
-  indicator-dots="true"
-  autoplay="true"
-  interval="5000"
-  duration="700"
->
-  <block wx:for="{{imgUrls}}" wx:key="{{item}}">
-    <swiper-item>
-      <image src="{{item}}" class="slide-image"/>
-    </swiper-item>
-  </block>
-</swiper>
-</view>
+  <swiper indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="700" current="{{swiperCurrent}}" bindanimationfinish="swiperChange">
+    <block wx:for="{{imgUrls.data.data}}" wx:key="{{item.title}}">
+     <navigator url='webpage.wxml'><swiper-item>
+        <image src="{{item.img}}" class="slide-image" bindtap='swipclick' />
+      </swiper-item></navigator>
+    </block> 
+  </swiper>
+</view> 
 
 <view class="citybox">
   <view class="flex-wrp">
-    <view class="flex-item ctbox1">
-      宜宾
-    </view>
-    <view class="flex-item ctbox2">
-      泸州
-    </view>
-    <view class="flex-item ctbox3">
-      乐山
-    </view>
-    <view class="flex-item ctbox4">
-      自贡
-    </view>
-    <view class="flex-item ctbox5">
-      内江
+    <view class="flex-item ctbox{{index}}" wx:for="{{citydata}}" wx:key="{{item.userid}}" data-projectRegion='{{item.projectRegion}}' bindtap='cityclick'>
+      {{item.projectRegion}}
     </view>
   </view>
 </view>

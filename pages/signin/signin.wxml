@@ -1,38 +1,85 @@
 <!--pages/signin/signin.wxml-->
+<view class="container" style="padding-top:{{statusBarHeight}}px">
+  <view class="header" style="height:40px;">
+
+  </view>
+</view>
+<view style='margin-top:{{statusBarHeight + 80}}px'></view>
+
 <view class='signinbox'>
-<!-- 用户 -->
+  <!-- 用户 -->
   <view class='signlogin'>
-      <view class='headerigm'>
-        <view class='imgname'><image src='../../images/icon_homepage_selected@3x.png'></image></view>
-        <text>个人昵称</text>
+    <view class='headerigm'>
+      <view class='imgname'>
+        <image wx:if="{{btn_show}}" src='{{userInfo.avatarUrl}}'></image>
+        <image wx:else src="../../images/normal_avatar_logined@2x.png"></image>
       </view>
-      <view class='buttonbox'>
-        <view> <button>登录/注册</button></view>
-        <view> <button>退出登录</button></view>
+      <text wx:if="{{userInfo.nickName}}">{{userInfo.nickName}}</text>
+      <text wx:else>游客</text>
+    </view>
+
+    <view class='buttonbox'>
+      <view>
+      <button class='onlogin' bindtap='signout'  disabled='true' wx:if="{{btn_show}}">登录/注册</button>
+        <button open-type="getUserInfo" bindgetuserinfo="userinfoclick" wx:else>登录/注册</button>
+
+        <!-- <button open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">获取手机号</button> -->
+        <modal hidden="{{hiddenmodalput}}" title="绑定电话号码" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+          <view>
+           <input name="phone" placeholder='请输入手机号' placeholder-class='placesty' type='number' style='color:#333' maxlength="11" bindinput='blurPhone'></input>
+          <!-- <icon wx:if="{{ajxtrue}}" type="success" size="20" color="green" />
+           <icon wx:else type="cancel" size="40" size="20" color="red" /> -->
+          <button bindtap="bindButtonTap" disabled='{{disabled}}'>{{text}}</button>
+          </view>
+          <view>
+          <input placeholder='请输入验证码' placeholder-class='placesty' type='text' style='color:#333' maxlength="6" bindinput='blurVercode'></input>
+          </view>
+          
+        </modal>
       </view>
-       
+      <view>
+        <button bindtap='signout' wx:if="{{btn_show}}">退出登录</button>
+        <button class='onlogin' bindtap='signout' wx:else disabled='true'>退出登录</button>
+      </view>
+    </view>
+
   </view>
   <!-- 常用功能 -->
   <view class='commonlyuse'>
-      <view class='ittleuse'>常用功能</view>
-      <view class='commonlyitem_box'>
-        <view class='commonlyitem_list'>
-            <button>
-           应  用
-            <text>指  南</text> 
-            </button>
-        </view>
-        <view class='commonlyitem_list'>
-            <button>
-              缓  存 
-              <text>清  理</text> 
-            </button>
-        </view>
-        <view class='commonlyitem_list'>
-            <button>
-              信  息<text>收  藏</text> 
-            </button>
-        </view>
+    <!-- <view class='ittleuse'>常用功能</view> -->
+    <view class='commonlyitem_box' wx:if="{{btn_show}}">
+      <view class='commonlyitem_list' bindtap='gotosetting'>
+        <image src='../../images/icon_my_collection_logined@2x.png'></image>
+        <navigator>推送设置</navigator>
       </view>
+      <view class='commonlyitem_list' bindtap='clearstorage'>
+        <image src='../../images/icon_bound_company_logined@2x.png'></image>
+        <navigator>
+          缓存清理
+        </navigator>
+      </view>
+      <view class='commonlyitem_list' bindtap='gotohelp'>
+        <image src='../../images/icon_push_logined@2x.png'></image>
+        <navigator>应用指南</navigator>
+      </view>
+    </view>
+
+    <view class='commonlyitem_box' wx:else>
+      <view class='commonlyitem_list commonlyitem_listco'>
+        <image src='../../images/icon_my_collection@2x.png'></image>
+        <navigator>推送设置</navigator>
+      </view>
+       <view class='commonlyitem_list' bindtap='clearstorage'>
+        <image src='../../images/icon_bound_company_logined@2x.png'></image>
+        <navigator>
+          缓存清理
+        </navigator>
+      </view>
+      <view class='commonlyitem_list' bindtap='gotohelp'>
+        <image src='../../images/icon_push_logined@2x.png'></image>
+        <navigator>应用指南</navigator>
+      </view>
+    </view>
+
   </view>
 </view>

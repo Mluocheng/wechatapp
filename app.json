@@ -1,41 +1,49 @@
 {
   "pages": [
     "index/index",
+    "index/webpage",
     "pages",
-    "pages/viewpush/viewpush",
-    "pages/signin/signin"
+    "pages/viewpush/viewpush", 
+    "pages/signin/signin",
+    "pages/pushsettings/pushsettings",
+    "pages/publicitypage/publicitypage",
+    "pages/projectdetails/projectdetails",
+    "pages/projectdetail/projectdetail",
+    "pages/projectsearch/projectsearch",
+    "pages/gotohelp/gotohelp",
+    "pages/projectdetail/projectpage",
+    "pages/projectdetail/articalpage"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "",
     "navigationBarTextStyle": "black",
-    "navigationStyle":"custom"
+    "navigationStyle": "custom"
   },
   "tabBar": {
     "color": "#bfbfbf",
     "borderStyle": "black",
     "selectedColor": "#2196f3",
-    "position":"bottom",
+    "position": "bottom",
     "list": [
-      
       {
         "text": "查看推送",
-        "pagePath":"pages/viewpush/viewpush",
-        "iconPath":"images/icon_homepage_unselected@3x.png",
-        "selectedIconPath":"images/icon_homepage_selected@3x.png"
-      },
-      {
-        "text": "首页",
-        "pagePath": "index/index",
+        "pagePath": "pages/viewpush/viewpush",
         "iconPath": "images/icon_unselected_company@2x.png",
         "selectedIconPath": "images/icon_selected_company@2x.png"
       },
       {
+        "text": "首页",
+        "pagePath": "index/index",
+        "iconPath": "images/icon_homepage_unselected@2x.png",
+        "selectedIconPath": "images/icon_homepage_selected@2x.png"
+      },
+      {
         "text": "登录",
         "pagePath": "pages/signin/signin",
-        "iconPath": "images/icon_unselected_personal@3x.png",
-        "selectedIconPath": "images/icon_selected_personal@3x.png"
+        "iconPath": "images/icon_unselected_personal@2x.png",
+        "selectedIconPath": "images/icon_selected_personal@2x.png"
       }
     ]
   }
