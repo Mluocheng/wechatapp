@@ -11,14 +11,14 @@
   <view class='signlogin'>
     <view class='headerigm'>
       <view class='imgname'>
-        <image wx:if="{{btn_show}}" src='{{userInfo.avatarUrl}}'></image>
+        <image wx:if="{{btn_show}}" src='{{aurl || userInfo.avatarUrl}}'></image>
         <image wx:else src="../../images/normal_avatar_logined@2x.png"></image>
       </view>
-      <text wx:if="{{userInfo.nickName}}">{{userInfo.nickName}}</text>
+      <text wx:if="{{btn_show}}">{{aname || userInfo.nickName}}</text>
       <text wx:else>游客</text>
-    </view>
+    </view>  
 
-    <view class='buttonbox'>
+    <view class='buttonbox'> 
       <view>
       <button class='onlogin' bindtap='signout'  disabled='true' wx:if="{{btn_show}}">登录/注册</button>
         <button open-type="getUserInfo" bindgetuserinfo="userinfoclick" wx:else>登录/注册</button>

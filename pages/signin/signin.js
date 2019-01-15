@@ -32,17 +32,19 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    const vm = this
-    vm.setData({
+    const that = this
+    that.setData({
       statusBarHeight: getApp().globalData.statusBarHeight,
       titleBarHeight: getApp().globalData.titleBarHeight,
       btn_show: wx.getStorageSync("btn_show"),
+      aurl: wx.getStorageSync('avatUrl'), 
+      aname: wx.getStorageSync('niName')
     })
   },
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function() { 
     this.setData({
       btn_show: wx.getStorageSync("btn_show"),
     })
@@ -112,12 +114,22 @@ Page({
                     console.log("已绑定登录")
                     wx.getUserInfo({
                       success: function(res) {
-                        // console.log(res)
+                        wx.setStorageSync('avatUrl', res.userInfo.avatarUrl)
+                        wx.setStorageSync('niName', res.userInfo.nickName)
+                        // wx.setStorage({
+                        //   key: 'avaUrl',
+                        //   data: res.userInfo.avatarUrl
+                        // })
+                        // wx.setStorage({
+                        //   key: 'nicame',
+                        //   data: res.userInfo.nickName,
+                        // })
+                        //  console.log(res.userInfo.avatarUrl)
                         //  btn_show   
                         wx.setStorageSync("btn_show", true);
                         var avatarUrl = 'userInfo.avatarUrl';
-                        var nickName = 'userInfo.nickName';
-                        that.setData({
+                        var nickName = 'userInfo.nickName'; 
+                        that.setData({ 
                           btn_show: true,
                           [avatarUrl]: res.userInfo.avatarUrl,
                           [nickName]: res.userInfo.nickName,

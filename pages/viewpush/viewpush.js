@@ -135,8 +135,8 @@ Page({
           that.setData({
             projectlistdata: res.data
           })
-          console.log(res.data.data.onlyRegion.length)
-          if (res.data.data.onlyRegion.length == 0){
+          console.log(res.data.data.onlyRegion == null)
+          if (res.data.data.onlyRegion == null){
             wx.setStorageSync("showcontent", true)
           }
         }else{
