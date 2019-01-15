@@ -47,7 +47,7 @@
   </view>
 </view>
 
-<view class='nothing' wx:if="{{btn_show && projectlistdata.data.onlyRegion==0}}">
+<view class='nothing' wx:if="{{btn_show && projectlistdata.data.onlyRegion==null}}">
   <view>
     <image src='../../images/request_error_1@2x.png'></image>
   </view>
