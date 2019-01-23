@@ -7,15 +7,81 @@ Page({
   data: {
     projectlistdata: '',
     detailvalue: '', //搜索内容
-    pagecurrent: 1
+    pagecurrent: 1,
+    usid:0,
+    projectRegionCity:'宜宾',
+    projectRegionLogo:'yibing_icon_2.png',
+    citydata: [{
+      "projectRegion": "宜宾",
+      "userid": "0",
+      "pagecurrent": 1,
+      "pagesize": 10,
+      "logo": "yibing_icon_2.png",
+      "logoshow":"yibing_icon_1.png"
+    },
+    {
+      "projectRegion": "内江",
+      "userid": "1",
+      "pagecurrent": 1,
+      "pagesize": 10,
+      "logo": "neijiang_icon_2.png",
+      "logoshow": "neijiang_icon_1.png"
+    },
+    {
+      "projectRegion": "自贡",
+      "userid": "2",
+      "pagecurrent": 1,
+      "pagesize": 10,
+      "logo": "zigong_icon_2.png",
+      "logoshow": "zigong_icon_1.png"
+    },
+    {
+      "projectRegion": "泸州",
+      "userid": "3",
+      "pagecurrent": 1,
+      "pagesize": 10,
+      "logo": "luzhou_icon_2.png",
+      "logoshow": "luzhou_icon_1.png"
+    },
+    {
+      "projectRegion": "乐山",
+      "userid": "5",
+      "pagecurrent": 1,
+      "pagesize": 10,
+      "logo":"leshan_icon_2.png",
+      "logoshow": "leshan_icon_1.png"
+    }
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-
+    var that = this;
+    wx.request({
+      data: {
+        userId: wx.getStorageSync("userId"),
+        projectRegion: '宜宾',
+        search: '四川',
+        pagecurrent: 1
+      },
+      url: 'https://91jober.com/user/article3/findProjectTwo3',
+      success: function (res) {
+        wx.hideLoading();
+        that.setData({
+          projectlistdata: res.data,
+          projectRegionCity: '宜宾',
+          detailvalue: '',
+        })
+      },
+      fail: function () {
+        wx.showToast({
+          title: '网络出错啦！',
+          icon: 'fail',
+          duration: 1000
+        })
+      }
     })
 
   },
@@ -59,7 +125,7 @@ Page({
    */
   onPullDownRefresh: function() {
     var that = this;
-    that.requestsearch(that.detailvalue);
+    // that.requestsearch(that.detailvalue);
   },
 
   /**
@@ -71,37 +137,75 @@ Page({
     })
     var that = this;
     that.data.pagecurrent++;
-    wx.request({
-      data: {
-        userId: wx.getStorageSync("userId"),
-        search: that.data.detailvalue,
-        pagecurrent: that.data.pagecurrent,
-      },
-      url: 'https://91jober.com/user/article3/findProjectTwo3',
-      success: function(res) {
-        if (res.data.resultcode == 1002) {
-          //成功
-          wx.hideLoading();
-          // var arrpush = that.data.project.data.onlyRegion;
-          var listpush = res.data.data.onlyRegion;
-          for (var i = 0; i < listpush.length; i++) {
-            that.data.projectlistdata.data.onlyRegion.push(listpush[i])
+    console.log(that.data.detailvalue,wx.getStorageSync("userId"))
+    if (that.data.detailvalue.length != 0){
+      wx.request({
+        data: {
+          userId: wx.getStorageSync("userId"),
+         search: that.data.detailvalue,
+          pagecurrent: that.data.pagecurrent,
+          // projectRegion: that.data.projectRegionCity
+        },
+        url: 'https://91jober.com/user/article3/findProjectTwo3',
+        success: function (res) {
+          if (res.data.resultcode == 1002) {
+            //成功
+            wx.hideLoading();
+            // var arrpush = that.data.project.data.onlyRegion;
+            var listpush = res.data.data.onlyRegion;
+            for (var i = 0; i < listpush.length; i++) {
+              that.data.projectlistdata.data.onlyRegion.push(listpush[i])
+            }
+            that.setData({
+              projectlistdata: that.data.projectlistdata,
+            })
+            //  console.log(that.data.project)
+          } else {
+            //失败
+            wx.showLoading({
+              title: '加载失败',
+            })
+            setTimeout(function () {
+              wx.hideLoading()
+            }, 1500)
           }
-          that.setData({
-            projectlistdata: that.data.projectlistdata,
-          })
-          //  console.log(that.data.project)
-        } else {
-          //失败
-          wx.showLoading({
-            title: '加载失败',
-          })
-          setTimeout(function() {
-            wx.hideLoading()
-          }, 1500)
         }
-      }
-    })
+      })
+    } else if (that.data.projectRegionCity.length != 0){
+      wx.request({
+        data: {
+          userId: wx.getStorageSync("userId"),
+          // search: that.data.detailvalue,
+          pagecurrent: that.data.pagecurrent,
+          projectRegion: that.data.projectRegionCity
+        },
+        url: 'https://91jober.com/user/article3/findProjectTwo3',
+        success: function (res) {
+          if (res.data.resultcode == 1002) {
+            //成功
+            wx.hideLoading();
+            // var arrpush = that.data.project.data.onlyRegion;
+            var listpush = res.data.data.onlyRegion;
+            for (var i = 0; i < listpush.length; i++) {
+              that.data.projectlistdata.data.onlyRegion.push(listpush[i])
+            }
+            that.setData({
+              projectlistdata: that.data.projectlistdata,
+            })
+            //  console.log(that.data.project)
+          } else {
+            //失败
+            wx.showLoading({
+              title: '加载失败',
+            })
+            setTimeout(function () {
+              wx.hideLoading()
+            }, 1500)
+          }
+        }
+      })
+    }
+    
   },
 
   /**
@@ -128,19 +232,16 @@ Page({
   },
   //搜索 离开焦点 及 点击用户点击确认时
   blurvalue: function(event) {
+    console.log(event.detail.value.length)
     var that = this;
-    that.setData({
-      detailvalue: event.detail.value
-    })
-    that.requestsearch(event.detail.value, 1);
+    if (event.detail.value.length != 0){
+      that.setData({
+        detailvalue: event.detail.value,
+        projectRegionCity:''
+      })
+      that.requestsearch(event.detail.value, 1);
+    }
   },
-  // confirmvalue:function(event){
-  //   var that = this;
-  //   that.setData({
-  //     detailvalue: event.detail.value
-  //   })
-  //   that.requestsearch(event.detail.value);
-  // },
   //封装请求
   requestsearch: function(search, pagecurrent) {
     wx.showLoading({
@@ -152,8 +253,6 @@ Page({
         userId: wx.getStorageSync("userId"),
         search: search,
         pagecurrent: pagecurrent,
-        // pagesize: 10,
-        // projectRegion: null,
       },
       url: 'https://91jober.com/user/article3/findProjectTwo3',
       success: function(res) {
@@ -184,4 +283,37 @@ Page({
       url: '../projectdetail/projectdetail?articleid=' + e.currentTarget.dataset.articleid
     })
   },
+//点击城市请求
+  cityclick: function (e) {
+    wx.showLoading({
+      title: '加载中',
+    })
+    var that =this;
+    console.log(e.currentTarget.dataset.uid)
+    wx.request({
+      data: {
+        userId: wx.getStorageSync("userId"),
+        projectRegion: e.currentTarget.dataset.projectregion,
+        search: '四川',
+        pagecurrent: 1
+      },
+      url: 'https://91jober.com/user/article3/findProjectTwo3',
+      success: function (res) {
+        wx.hideLoading();
+        that.setData({
+          projectlistdata: res.data,
+          projectRegionCity: e.currentTarget.dataset.projectregion,
+          detailvalue: '',
+          usid: e.currentTarget.dataset.uid
+        })
+      },
+      fail: function () {
+        wx.showToast({
+          title: '网络出错啦！',
+          icon: 'fail',
+          duration: 1000
+        })
+      }
+    })
+  }
 })

@@ -1,50 +1,64 @@
- <view class="container" style="padding-top:{{statusBarHeight}}px">
-  <view class="header">
-  <view>
-    <button plain="false" bindtap="goto" class='iconfont icon-zuojiantou' hover-class='hoverbtnsty' hover-stay-time="700"></button>
+<view class='page'>
+  <view class="container" style="padding-top:{{statusBarHeight}}px">
+    <image class='titileimg' src='../../images/inside_pg.png'>
+    <view class="header">
+      <view>
+        <button plain="false" bindtap="goto" class='iconfont icon-zuojiantou' hover-class='hoverbtnsty' hover-stay-time="700"></button>
+      </view>
+      <view class='title'>推送设置</view>
+      <view style='width:52px'></view>
     </view>
+    </image>
   </view>
-</view>
-<view style='margin-top:{{statusBarHeight + 60}}px'></view>
+  <view style='margin-top:{{statusBarHeight + 44}}px'></view>
 
-<view class='box'>
-<!-- bindsubmit《携带form中的数据发生submit事件》 bindreset《表单重置时触发reset事件》  -->
-<form bindsubmit="formSubmit" bindreset="formReset" >
- <view class='formgroup'>
-  <view class='lf formlistlable'>第一组</view>
-  <input name="input1" class='lf' placeholder='请输入推送内容' placeholder-class='placesty'></input>
- </view>
- 
- <view class='formgroup'>
-  <view class='lf formlistlable'>第二组</view>
-  <input  name="input2" class='lf' placeholder='请输入推送内容' placeholder-class='placesty'></input>
- </view>
+  <view class='box'>
+    <!-- bindsubmit《携带form中的数据发生submit事件》 bindreset《表单重置时触发reset事件》  -->
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class='formgroup'>
+        <view class='lf formlistlable'>
+          <image src='../../images/push_icon_1.png'></image>第一组:</view>
+        <input name="input1" maxlength="15" placeholder='请输入推送内容' placeholder-class='placesty'></input>
+      </view>
 
- <view class='formgroup'>
-  <view class='lf formlistlable'>第三组</view>
-  <input name="input3" class='lf' placeholder='请输入推送内容' placeholder-class='placesty'></input>
- </view>
+      <view class='formgroup'>
+        <view class='lf formlistlable'>
+          <image src='../../images/push_icon_1.png'></image>
+          第二组:
+        </view>
+        <input name="input2" maxlength="15" placeholder='请输入推送内容' placeholder-class='placesty'></input>
+      </view>
 
- <view class='formgroup'>
-  <view class='lf formlistlable'>第四组</view>
-  <input name="input4" class='lf' placeholder='请输入推送内容' placeholder-class='placesty'></input>
- </view>
+      <view class='formgroup'>
+        <view class='lf formlistlable'>
+          <image src='../../images/push_icon_1.png'></image>第三组:</view>
+        <input name="input3" maxlength="15" placeholder='请输入推送内容' placeholder-class='placesty'></input>
+      </view>
 
- <view class='formgroup'>
-  <view class='lf formlistlable'>第五组</view>
-  <input name="input5" class='lf' placeholder='请输入推送内容' placeholder-class='placesty'></input>
- </view>
+      <view class='formgroup'>
+        <view class='lf formlistlable'>
+          <image src='../../images/push_icon_1.png'></image>第四组:</view>
+        <input name="input4" maxlength="15" placeholder='请输入推送内容' placeholder-class='placesty'></input>
+      </view>
 
- <view class='formgroup'>
-  <view class='lf formlistlable'>第六组</view>
-  <input name="input6" class='lf' placeholder='请输入推送内容' placeholder-class='placesty'></input>
- </view>
+      <view class='formgroup'>
+        <view class='lf formlistlable'>
+          <image src='../../images/push_icon_1.png'></image>第五组:</view>
+        <input name="input5" maxlength="15" placeholder='请输入推送内容' placeholder-class='placesty'></input>
+      </view>
+
+      <view class='formgroup'>
+        <view class='lf formlistlable'>
+          <image src='../../images/push_icon_1.png'></image>第六组:</view>
+        <input name="input6" maxlength="15" cursor='5' placeholder='请输入推送内容' placeholder-class='placesty'></input>
+      </view>
 
 
 
-  
-  <view class="btn-area">
-    <button formType="submit">确认</button>
+
+      <view class="btn-area">
+        <button formType="submit">完 成</button>
+      </view>
+    </form>
   </view>
-</form>
 </view>

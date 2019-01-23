@@ -1,85 +1,93 @@
-<!--pages/signin/signin.wxml-->
 <view class="container" style="padding-top:{{statusBarHeight}}px">
-  <view class="header" style="height:40px;">
+  <image class='titileimg' src='../../images/inside_pg.png'>
+    <view class="header">
 
-  </view>
+    </view>
+  </image>
 </view>
-<view style='margin-top:{{statusBarHeight + 80}}px'></view>
+<view style='margin-top:{{statusBarHeight + 44}}px'></view>
 
-<view class='signinbox'>
-  <!-- 用户 -->
-  <view class='signlogin'>
-    <view class='headerigm'>
-      <view class='imgname'>
+
+<view class='box'>
+  <image class='topboxbg' src='../../images/hone_pg.png'>
+    <view class='topbox'>
+      <view class='topface'>
         <image wx:if="{{btn_show}}" src='{{aurl || userInfo.avatarUrl}}'></image>
-        <image wx:else src="../../images/normal_avatar_logined@2x.png"></image>
+        <image wx:else src="../../images/my_icon_7.png"></image>
       </view>
-      <text wx:if="{{btn_show}}">{{aname || userInfo.nickName}}</text>
-      <text wx:else>游客</text>
-    </view>  
-
-    <view class='buttonbox'> 
-      <view>
-      <button class='onlogin' bindtap='signout'  disabled='true' wx:if="{{btn_show}}">登录/注册</button>
-        <button open-type="getUserInfo" bindgetuserinfo="userinfoclick" wx:else>登录/注册</button>
-
+      <view class='topname'>
+        <text wx:if="{{btn_show}}">{{aname || userInfo.nickName}}</text>
+        <text wx:else>游客</text>
+      </view>
+      <view class='topbut'>
+        <button plain="true" bindtap='signout' wx:if="{{btn_show}}">退出登录</button>
+        <button plain="true" open-type="getUserInfo" bindgetuserinfo="userinfoclick" wx:else>登录/注册</button>
         <!-- <button open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">获取手机号</button> -->
         <modal hidden="{{hiddenmodalput}}" title="绑定电话号码" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
           <view>
-           <input name="phone" placeholder='请输入手机号' placeholder-class='placesty' type='number' style='color:#333' maxlength="11" bindinput='blurPhone'></input>
-          <!-- <icon wx:if="{{ajxtrue}}" type="success" size="20" color="green" />
+            <input name="phone" placeholder='请输入手机号' placeholder-class='placesty' type='number' style='color:#333' maxlength="11" bindinput='blurPhone'></input>
+            <!-- <icon wx:if="{{ajxtrue}}" type="success" size="20" color="green" />
            <icon wx:else type="cancel" size="40" size="20" color="red" /> -->
-          <button bindtap="bindButtonTap" disabled='{{disabled}}'>{{text}}</button>
+            <button bindtap="bindButtonTap" disabled='{{disabled}}'>{{text}}</button>
           </view>
           <view>
-          <input placeholder='请输入验证码' placeholder-class='placesty' type='text' style='color:#333' maxlength="6" bindinput='blurVercode'></input>
+            <input placeholder='请输入验证码' placeholder-class='placesty' type='text' style='color:#333' maxlength="6" bindinput='blurVercode'></input>
           </view>
-          
         </modal>
       </view>
-      <view>
-        <button bindtap='signout' wx:if="{{btn_show}}">退出登录</button>
-        <button class='onlogin' bindtap='signout' wx:else disabled='true'>退出登录</button>
+    </view>
+  </image>
+</view>
+
+<view class='contentbox'>
+  <view class='contentlist' bindtap='gotohelp'>
+    <view class='contentlogo'>
+      <image src='../../images/my_icon_2.png'></image>
+    </view>
+    <view class='contentcont'>
+      <view class='contenttitle'>
+        应用指南
+      </view>
+      <view class='contneirong'>
+        详细了解链筑APP操作流程
       </view>
     </view>
-
+    <view class='contentrightimg'>
+      <image src='../../images/my_icon_6.png'></image>
+    </view>
   </view>
-  <!-- 常用功能 -->
-  <view class='commonlyuse'>
-    <!-- <view class='ittleuse'>常用功能</view> -->
-    <view class='commonlyitem_box' wx:if="{{btn_show}}">
-      <view class='commonlyitem_list' bindtap='gotosetting'>
-        <image src='../../images/icon_my_collection_logined@2x.png'></image>
-        <navigator>推送设置</navigator>
+
+  <view class='contentlist' bindtap='clearstorage'>
+    <view class='contentlogo'>
+      <image src='../../images/my_icon_3.png'></image>
+    </view>
+    <view class='contentcont'>
+      <view class='contenttitle'>
+        清除缓存
       </view>
-      <view class='commonlyitem_list' bindtap='clearstorage'>
-        <image src='../../images/icon_bound_company_logined@2x.png'></image>
-        <navigator>
-          缓存清理
-        </navigator>
-      </view>
-      <view class='commonlyitem_list' bindtap='gotohelp'>
-        <image src='../../images/icon_push_logined@2x.png'></image>
-        <navigator>应用指南</navigator>
+      <view class='contneirong'>
+        清除缓存，减轻内存压力
       </view>
     </view>
+    <view class='contentrightimg'>
+      <image src='../../images/my_icon_6.png'></image>
+    </view>
+  </view>
 
-    <view class='commonlyitem_box' wx:else>
-      <view class='commonlyitem_list commonlyitem_listco'>
-        <image src='../../images/icon_my_collection@2x.png'></image>
-        <navigator>推送设置</navigator>
+  <view class='contentlist' bindtap='gotosetting'>
+    <view class='contentlogo'>
+      <image src='../../images/my_icon_4.png'></image>
+    </view>
+    <view class='contentcont'>
+      <view class='contenttitle'>
+        推送设置
       </view>
-       <view class='commonlyitem_list' bindtap='clearstorage'>
-        <image src='../../images/icon_bound_company_logined@2x.png'></image>
-        <navigator>
-          缓存清理
-        </navigator>
-      </view>
-      <view class='commonlyitem_list' bindtap='gotohelp'>
-        <image src='../../images/icon_push_logined@2x.png'></image>
-        <navigator>应用指南</navigator>
+      <view class='contneirong'>
+        设置关键词，精准推送项目
       </view>
     </view>
-
+    <view class='contentrightimg'>
+      <image src='../../images/my_icon_6.png'></image>
+    </view>
   </view>
 </view>

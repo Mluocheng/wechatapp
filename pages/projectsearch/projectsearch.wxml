@@ -1,35 +1,44 @@
 <view class="container" style="padding-top:{{statusBarHeight}}px">
-  <view class="header">
-    <view>
-      <button plain="false" bindtap="goto" class='iconfont icon-zuojiantou' hover-class='hoverbtnsty' hover-stay-time="700"></button>
+    <image class='titileimg' src='../../images/inside_pg.png'>
+    <view class="header">
+      <view>
+        <button plain="false" bindtap="goto" class='iconfont icon-zuojiantou' hover-class='hoverbtnsty' hover-stay-time="700"></button>
+      </view>
+     <view class="search">
+      <icon type='search' color="#1975ff"></icon>
+      <image src='../../images/inside_icon_4.png'></image>
+      <input focus='false' type='text' placeholder='项目名称模糊搜索' placeholder-class='centerplaceholder' bindconfirm="confirmvalue" bindblur="blurvalue"></input>
     </view>
+      <view style='width:52px'></view>
+    </view>
+    </image>
+  </view>
+<view style='margin-top:{{statusBarHeight + 44}}px'></view>
+
+<view class='citybox'>
+  <view class='citylist' wx:for="{{citydata}}" wx:key="{{item.userid}}" data-uid='{{item.userid}}' data-projectRegion='{{item.projectRegion}}' bindtap='cityclick'>
+    <view class='citylisting'>
+      <image wx:if="{{index == usid}}" mode="aspectFit" src='../../images/{{item.logoshow}}'></image>
+      <image wx:else mode="aspectFit" src='../../images/{{item.logo}}'></image>
+    </view>
+    <view class='citylistcity'>{{item.projectRegion}}</view>
   </view>
 </view>
-<view style='margin-top:{{statusBarHeight + 60}}px'></view>
-
-
-<view class='box title'>
-  <view class='titlekeyword'>
-    <view class='titlekeywordlist keyword'>关键词</view>
-    <view class='titlekeywordlist bon'>宜宾</view>
-    <view class='titlekeywordlist bon'>工程</view>
-  </view>
-  <view class='search'>
-    <input auto-focus='true' type='text' placeholder='输入内容' placeholder-class='placeholdersty' bindconfirm="confirmvalue" bindblur="blurvalue"></input>
-  </view>
-</view>
-
 <view class="section box">
   <view class="flex-wrp">
     <view class="flex-item bgcolor" wx:for="{{projectlistdata.data.onlyRegion}}" wx:key="{{item.id}}" data-articleid="{{item.id}}" bindtap='gotoprojectdetail'>
+      <view class='isCorrect' wx:if="{{item.isCorrect}}">
+        <image src='../../images/inside_icon_5.png'></image>
+      </view>
       <view class='itmeandmoney'>
         <view class='left_time lf'>
+        <image class='timeico' src='../../images/inside_icon_4.png'></image>
           报名截止时间:
-          <text class='timemoneycolcor'>{{item.applyEndDate}}</text>
+          <text>{{item.applyEndDate}}</text>
         </view>
-        <view class='rightmoner rf'>
+        <view class='rightmoner lf'>
           项目金额：
-          <text class='timemoneycolcor'>{{item.projectFunds}}万</text>
+          <text>{{item.projectFunds}}万</text>
         </view>
       </view>
       <view class='clearfloat'></view>
@@ -39,7 +48,6 @@
       <view class='requirement'>
         <view>
           <text>资质要求</text> {{item.quaRequirement}}</view>
-
       </view>
     </view>
   </view>

@@ -1,26 +1,33 @@
 <view class="container" style="padding-top:{{statusBarHeight}}px">
-  <view class="header">
-    <view class='title'>
-      查看推送
+    <image class='titileimg' src='../../images/inside_pg.png'>
+    <view class="header">
+      <view style='width:52px'></view>
+      <view class='title'>查看推送</view>
+      <view style='width:52px'></view>
     </view>
+    </image>
   </view>
-</view>
-<view style='margin-top:{{statusBarHeight + 60}}px'></view>
+<view style='margin-top:{{statusBarHeight + 44}}px'></view>
 
 <view wx:if="{{btn_show}}" class="section box" wx:for="{{projectlistdata.data.onlyRegion}}" wx:key="{{item.pushTime}}">
   <view class="section_data">
+  <image class='timeico' src='../../images/inside_icon_2.png'></image>
     {{item.pushTime}}
   </view>
   <view class="flex-wrp">
     <view bindtap='projectlistclick' class="flex-item bgcolor" wx:for="{{item.pushList}}" wx:key="{{item.id}}" data-articleid="{{item.id}}">
+      <view class='isCorrect' wx:if="{{item.isCorrect}}">
+        <image src='../../images/inside_icon_5.png'></image>
+      </view>
       <view class='itmeandmoney'>
         <view class='left_time lf'>
-          报名截止时间:
-          <text class='timemoneycolcor'>{{item.applyEndDate}}</text>
+            <image class='timeico' src='../../images/inside_icon_4.png'></image>
+          截止时间:
+          <text>{{item.applyEndDate}}</text>
         </view>
-        <view class='rightmoner rf'>
+        <view class='rightmoner lf'>
           项目金额：
-          <text class='timemoneycolcor'>{{item.projectFunds}}万</text>
+          <text>{{item.projectFunds}}万</text>
         </view>
       </view>
       <view class='clearfloat'></view>
@@ -29,7 +36,7 @@
       </view>
       <view class='requirement'>
         <view>
-          <text>资质要求</text> {{item.quaRequirement}}</view>
+          <text>资质要求</text>{{item.quaRequirement}}</view>
       </view>
     </view>
   </view>

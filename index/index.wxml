@@ -1,30 +1,54 @@
 <view class="container" style="padding-top:{{statusBarHeight}}px">
-  <view class="header">
-  </view>
+  <image class='titileimg' src='../images/inside_pg.png'>
+    <view class="header">
+      <view class='title' bindtap='gotosetting'>
+        <image src='../images/Home_button.png'></image>
+      </view>
+      <view style='width:52px'></view>
+      <view style='width:52px'></view>
+    </view>
+  </image>
 </view>
-<view style='margin-top:{{statusBarHeight + 60}}px'></view>
+<view style='margin-top:{{statusBarHeight + 44}}px'></view>
 
-<view class="flex-wrp" style="flex-direction:row;">
-  <view class="flex-item search">
-    <input bindfocus="bangfocusgoto" type='text' placeholder='项目模糊搜索' placeholder-class='centerplaceholder'></input>
-    <!-- <icon type='search'></icon>-->
+
+<image class='topboxbg' src='../images/hone_pg.png'>
+  <view class='topbox'>
+    <view class='tbtitle'>链筑-项目整合平台</view>
+    <view class="search">
+      <icon type='search' color="#1975ff"></icon>
+      <image src='../images/inside_icon_4.png'></image>
+      <input bindfocus="bangfocusgoto" type='text' placeholder='项目名称模糊搜索' placeholder-class='centerplaceholder'></input>
+    </view>
+    <view class='example'>
+      示范： 建筑项目 设计
+    </view>
   </view>
-</view>
+</image>
 
-<view class='swiperbox'>
-  <swiper indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="700" current="{{swiperCurrent}}" bindanimationfinish="swiperChange">
-    <block wx:for="{{imgUrls.data.data}}" wx:key="{{item.title}}">
-     <navigator url='webpage.wxml'><swiper-item>
-        <image src="{{item.img}}" class="slide-image" bindtap='swipclick' />
-      </swiper-item></navigator>
-    </block> 
-  </swiper>
-</view> 
+<view class='btombox'>
+  <image class='btomlist' src='../images/home_pg_1.png'>
+    <view class='btomlistbody'>
+      <view class='btolisticon'>
+        <image src='../images/home_icon_1.png'></image>
+      </view>
+      <view class='btolistcontent'>
+        <view>按地域搜索</view>
+        <view class='bgholder'>按地域搜索，显示当地所有项目信息</view>
+      </view>
+    </view>
+  </image>
 
-<view class="citybox">
-  <view class="flex-wrp">
-    <view class="flex-item ctbox{{index}}" wx:for="{{citydata}}" wx:key="{{item.userid}}" data-projectRegion='{{item.projectRegion}}' bindtap='cityclick'>
-      {{item.projectRegion}}
+  <view class='btomlist'>
+    <image class='btomlistimg' src='../images/home_pg_1.png'></image>
+    <view class='btomlistbody'>
+      <view class='btolisticon'>
+        <image src='../images/home_icon_2.png'></image>
+      </view>
+      <view class='btolistcontent'>
+        <view>按项目名称搜索</view>
+        <view class='bgholder'>根据关键字对项目名称模糊搜索</view>
+      </view>
     </view>
   </view>
 </view>

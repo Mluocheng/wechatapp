@@ -22,7 +22,7 @@ Page({
 // //加载项目详情
   wx.request({
     data:{
-      articleId: options.articleid,
+      articleId: options.articleid, 
       userId: wx.getStorageSync("userId")
     },
     url: 'https://91jober.com/user/article3/findProjectById3',

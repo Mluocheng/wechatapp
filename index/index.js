@@ -1,60 +1,16 @@
 Page({
   data: {
     indicatorDots: false,
-    interval: 5000,
     duration: 1000,
     toView: 'red',
     scrollTop: 100,
-    imgUrls: {
-    },
     imgUrlsindex: '',
     swiperCurrent: 0,
-    citydata: [{
-        "projectRegion": "宜宾",
-        "userid": "1",
-        "pagecurrent": 1,
-        "pagesize": 10
-      },
-      {
-        "projectRegion": "泸州",
-        "userid": "2",
-        "pagecurrent": 1,
-        "pagesize": 10
-      },
-      {
-        "projectRegion": "乐山",
-        "userid": "3",
-        "pagecurrent": 1,
-        "pagesize": 10
-      },
-      {
-        "projectRegion": "自贡",
-        "userid": "4",
-        "pagecurrent": 1,
-        "pagesize": 10
-      },
-      {
-        "projectRegion": "内江",
-        "userid": "5",
-        "pagecurrent": 1,
-        "pagesize": 10
-      }
-    ],
-    // btn_show:false
   },
   // 监听页面加载
   onLoad: function() {
     var that = this;
-    wx.request({
-      data:{},
-      url: 'https://91jober.com/user/banner/banners',
-      success:function(res){
-          // console.log(res.data)
-          that.setData({
-            imgUrls : res.data
-          })
-      }
-    })
+    
   },
   // 监听页面显示
   onShow: function() {
@@ -120,32 +76,15 @@ Page({
     })
 
   },
-  // swiper 轮播切换事件
-  swiperChange: function(e) {
-    this.setData({
-      swiperCurrent: e.detail.current
-    })
-    // console.log(e.detail.current)
-  },
-  // swiper 轮播点击事件、
-  swipclick: function(e) {
-    console.log(this.data.swiperCurrent)
-    wx.navigateTo({
-      // url: '../pages/publicitypage/publicitypage?imgsrc=1'
-      url:'https://91jober.com'
-    })
-  },
-  //城市跳转详情页面
-  cityclick: function(e) {
-    console.log(e.currentTarget.dataset.projectregion)
-    wx.navigateTo({
-      url: '../pages/projectdetails/projectdetails?projectregion=' + e.currentTarget.dataset.projectregion
-    })
-  },
   //获取焦点事件 
   bangfocusgoto: function() {
     wx.navigateTo({
       url: '../pages/projectsearch/projectsearch'
     })
-  }
+  },
+  gotosetting: function () {
+    wx.navigateTo({
+      url: '../pages/pushsettings/pushsettings',
+    })
+  },
 })

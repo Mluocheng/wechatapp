@@ -1,5 +1,5 @@
-.container, .header {
-  background-color: #2196f3;
+.container{
+  background-color: #1975ff;
 }
 
 .container {
@@ -7,14 +7,23 @@
   top: 0;
   width: 100%;
 }
-
+.container .titileimg{
+  height: 44px;
+  width: 100%;
+  position: relative;
+  vertical-align:middle;
+}
 .header {
   width: 100%;
-  height: 80rpx;
+  height: 44px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  z-index:999;
+position:absolute;
+top:0;
+
 }
 
 .header button {
@@ -23,7 +32,10 @@
   display: inline-block;
   line-height: 80rpx;
   background-color: transparent;
-  border-color: #2196f3;
+  border: none;
+  color: #fff;
+}
+.header .title{
   color: #fff;
 }
 .hoverbtnsty{
@@ -42,9 +54,18 @@
   clear: both;
 }
 
+
+
+
+page {
+  display: block;
+  min-height: 100%;
+  background-color: rgb(243, 243, 243);
+}
+
 .box {
-  width: 95%;
-  margin: 40rpx auto;
+  width: 100%;
+  margin: 40rpx a0uto;
 }
 
 .box form {
@@ -55,26 +76,41 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 40rpx auto;
+  margin-bottom: 25rpx;
+  height: 50px;
+  line-height: 50px;
+  background-color: #fff;
 }
 
 .box form input {
-  border: 1px solid #bbb;
-  border-radius: 10rpx;
-  width: 70%;
-  margin-left: 40rpx;
+  width: 75%;
+  height: 50px;
+ line-height: 50px;
+ color: #377dff;
+ padding-left: 10px;
 }
 
 .box button {
-  width: 35%;
+  width: 80%;
   background-color: #377dff;
-  border-radius: 10rpx;
+  border-radius: 30rpx;
   font-size: 16px;
   font-weight: 800;
   color: #fff;
-  margin-top: 100px;
+  margin-top: 50px;
+  border: none;
+}
+
+.formlistlable image{
+  margin-right: 8px;
+  width: 3px;
+  height: 22px;
+  vertical-align: middle;
 }
 .placesty{
   color: rgb(212, 212, 212);
   font-size: 12px;
+  text-align: right;
+  margin-right: 5px;
+  line-height: 50px;
 }

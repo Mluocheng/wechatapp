@@ -73,12 +73,6 @@ Page({
     wx.request({
       data: {
         userId: wx.getStorageSync("userId"),
-        // search1: getApp().globalData.pushsettingsdata.input1,
-        // search2: getApp().globalData.pushsettingsdata.input2,
-        // search3: getApp().globalData.pushsettingsdata.input3,
-        // search4: getApp().globalData.pushsettingsdata.input4,
-        // search5: getApp().globalData.pushsettingsdata.input5,
-        // search6: getApp().globalData.pushsettingsdata.input6
       },
       url: 'https://91jober.com/user/article3/findProjectTwo3',
       success: function (res) {
@@ -129,6 +123,114 @@ Page({
       },
       url: 'https://91jober.com/user/push3/findPushTwo3',
       success: function (res) {
+        res.data = {
+          "resultType": true,
+          "resultcode": 1002,
+          "data": {
+            "onlyRegion": [
+              {
+                "pushTime": "2018-07-11",
+                "pushList": [
+                  {
+                    "id": "e6b45500-348d-41d2-be88-fe48f8dba52d",
+                    "title": "雅安市名山区永兴镇名山河防洪治理工程",
+                    "name": null,
+                    "description": null,
+                    "keywords": null,
+                    "digest": null,
+                    "thumbnail": null,
+                    "pcContent": null,
+                    "type": null,
+                    "state": null,
+                    "author": null,
+                    "createTime": null,
+                    "updateTime": null,
+                    "href": null,
+                    "url": null,
+                    "regionLable": null,
+                    "projectFunds": "200",
+                    "quaRequirement": "水利水电工程施工总承包,三级资质标准",
+                    "projectRegion": null,
+                    "applyStartDate": null,
+                    "applyEndDate": "2018-08-02",
+                    "isPush": 0,
+                    "accessory": null,
+                    "quaType": null,
+                    "pushTime": "2018-07-11",
+                    "detailedRles": null,
+                    "documents": null,
+                    "isCollect": 1016,
+                    "isCorrect": false
+                  }]
+              }, {
+                "pushTime": "2018-07-11",
+                "pushList": [
+                  {
+                    "id": "e6b45500-348d-41d2-be88-fe48f8dba52d",
+                    "title": "雅安市名山区永兴镇名山河防洪治理工程",
+                    "name": null,
+                    "description": null,
+                    "keywords": null,
+                    "digest": null,
+                    "thumbnail": null,
+                    "pcContent": null,
+                    "type": null,
+                    "state": null,
+                    "author": null,
+                    "createTime": null,
+                    "updateTime": null,
+                    "href": null,
+                    "url": null,
+                    "regionLable": null,
+                    "projectFunds": "200",
+                    "quaRequirement": "水利水电工程施工总承包,三级资质标准",
+                    "projectRegion": null,
+                    "applyStartDate": null,
+                    "applyEndDate": "2018-08-02",
+                    "isPush": 0,
+                    "accessory": null,
+                    "quaType": null,
+                    "pushTime": "2018-07-11",
+                    "detailedRles": null,
+                    "documents": null,
+                    "isCollect": 1016,
+                    "isCorrect": false
+                  }, {
+                    "id": "e6b45500-348d-41d2-be88-fe48f8dba52d",
+                    "title": "雅安市名山区永兴镇名山河防洪治理工程",
+                    "name": null,
+                    "description": null,
+                    "keywords": null,
+                    "digest": null,
+                    "thumbnail": null,
+                    "pcContent": null,
+                    "type": null,
+                    "state": null,
+                    "author": null,
+                    "createTime": null,
+                    "updateTime": null,
+                    "href": null,
+                    "url": null,
+                    "regionLable": null,
+                    "projectFunds": "200",
+                    "quaRequirement": "水利水电工程施工总承包,三级资质标准",
+                    "projectRegion": null,
+                    "applyStartDate": null,
+                    "applyEndDate": "2018-08-02",
+                    "isPush": 0,
+                    "accessory": null,
+                    "quaType": null,
+                    "pushTime": "2018-07-11",
+                    "detailedRles": null,
+                    "documents": null,
+                    "isCollect": 1016,
+                    "isCorrect": true
+                  }]
+              }],
+            "msg": "请求成功"
+          }
+        }
+
         if (res.data.resultcode == 1002) {
           //成功
           wx.hideLoading();

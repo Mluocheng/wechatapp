@@ -1,44 +1,51 @@
 <view class="container" style="padding-top:{{statusBarHeight}}px">
-  <view class="header">
-    <view>
-      <button plain="false" bindtap="goto" class='iconfont icon-zuojiantou' hover-class='hoverbtnsty' hover-stay-time="700"></button>
+  <image class='titileimg' src='../../images/inside_pg.png'>
+    <view class="header">
+      <view>
+        <button plain="false" bindtap="goto" class='iconfont icon-zuojiantou' hover-class='hoverbtnsty' hover-stay-time="700"></button>
+      </view>
+      <view class='title'>项目详情</view>
+      <view style='width:52px'></view>
     </view>
-  </view>
+  </image>
 </view>
-<view style='margin-top:{{statusBarHeight + 60}}px'></view>
+<view style='margin-top:{{statusBarHeight + 44}}px'></view>
 
-<view class='bcc'></view>
 <view class='box flex_box' wx:for="{{peojextdeataildata.data.article}}" wx:key="{{item.id}}">
   <view class='flexlist flexlisttime'>
     <view class='title'>{{item.title}}</view>
-    <view class='time'>
-      <view class='ti'>报名时间</view>
-      <view class='urlti'>
-        <text class='colorblur'>{{item.applyStartDate}}</text>
-      </view>
-    </view>
     <view class='intordu'>
-      <view class='ti'>资质要求</view>
+      <view class='ti tiaa'>资质要求</view>
       <view class='urlti'>
         <text class='colorblur'>{{item.quaRequirement}}</text>
       </view>
     </view>
+    <view class='time'>
+      <view class='ti'>报名时间：</view>
+      <view class='urlti'>
+        <text class='colorblur'>{{item.applyStartDate}}</text>
+      </view>
+    </view>
     <view class='projectoritext'>
-      <view class='ti'>原文链接</view>
-      <view class='urlti colororg'>
-      <!-- {{item.href}} -->
-        <navigator url='articalpage' class='colororg'>
+      <view class='ti'>原文链接：</view>
+      <view class='urlti'>
+        <!-- {{item.href}} -->
+        <navigator url='articalpage'>
           {{item.href}}
         </navigator>
       </view>
     </view>
   </view>
-  <view class='bcc'></view>
+
   <view class='flexlist flexlistcon'>
     <view class='procontenttitle colorblur'>
-      - 项目内容 -
+      <image src='../../images/details_icon.png'></image>
+      <!-- <view class='colororg'>
+        关键词： 勘察、设计
+      </view> -->
     </view>
-    <view wx:for="{{item.detailedRles}}" wx:key="{{item.id}}">
+
+    <view class='contentbox' wx:for="{{item.detailedRles}}" wx:key="{{item.id}}">
       <view class='procontentkeyword'>
         <text>{{item.title}}</text>
       </view>
@@ -49,8 +56,7 @@
   </view>
 
   <view class='tenderdocuments' wx:if="{{item.files.length != 0}}">
-    <view class='bcc'></view>
-    <view class='procontenttitle colorblur'>
+    <view class='procontenttitle'>
       - 招标文件 -
     </view>
     <view class='procontent' wx:for="{{item.files}}" wx:key="{{item.filename}}">
@@ -58,7 +64,7 @@
       <view>
         <navigator class='prosee' url='projectpage' hover-class="hoversty">
           查看
-        </navigator>  
+        </navigator>
       </view>
     </view>
   </view>

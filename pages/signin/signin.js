@@ -95,6 +95,7 @@ Page({
                 jscode: res.code
               })
               console.log(res.code)
+              // wx.setStorageSync("rescode", res.code);
               wx.request({
                 data: {
                   code: res.code
@@ -106,7 +107,7 @@ Page({
                   //缓存userId
                   wx.setStorageSync('userId', res.data.userId)
                   // 判断是否是 首次登录
-                  if (res.data.status == 0) {
+                  if (res.data.status == 0){
                     that.setData({
                       hiddenmodalput: false
                     })
@@ -115,17 +116,7 @@ Page({
                     wx.getUserInfo({
                       success: function(res) {
                         wx.setStorageSync('avatUrl', res.userInfo.avatarUrl)
-                        wx.setStorageSync('niName', res.userInfo.nickName)
-                        // wx.setStorage({
-                        //   key: 'avaUrl',
-                        //   data: res.userInfo.avatarUrl
-                        // })
-                        // wx.setStorage({
-                        //   key: 'nicame',
-                        //   data: res.userInfo.nickName,
-                        // })
-                        //  console.log(res.userInfo.avatarUrl)
-                        //  btn_show   
+                        wx.setStorageSync('niName', res.userInfo.nickName) 
                         wx.setStorageSync("btn_show", true);
                         var avatarUrl = 'userInfo.avatarUrl';
                         var nickName = 'userInfo.nickName'; 
@@ -245,7 +236,7 @@ Page({
         url: 'https://91jober.com/user/test/findCode',
         method: 'get',
         data: {
-          phoneNum: that.data.phone
+          phoneNum: that.data.phone 
         },
         success: function(res) {
           if (res.data.state == 1) {
@@ -341,7 +332,7 @@ Page({
     //验证验证码
     wx.request({
       data: {
-        // code: that.data.jscode,
+      //  code: that.data.jscode,
         phone: that.data.phone,
         sendCode: that.data.blurvercode
       },

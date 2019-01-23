@@ -72,10 +72,10 @@ Page({
   },
   // 
   goto:function(){
-    wx.switchTab({
-      url: '../signin/signin'　　
-    })
-  
+    // wx.switchTab({
+    //   url: '../signin/signin'　　
+    // })
+    wx.navigateBack();
   },
     // 表单提交事件
 formSubmit(e){
