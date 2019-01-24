@@ -35,6 +35,8 @@ top:0;
   border-color: #377dff;
   color: #fff;
   border: none;
+  padding-left:7px;
+  padding-right: 7px;
 }
 
 .hoverbtnsty {
@@ -65,7 +67,7 @@ page {
 
 .box {
   width: 100%;
-  margin: 20rpx 0;
+  margin-top: 20rpx;
   font-size: 28rpx;
 }
 
@@ -81,7 +83,9 @@ page {
   align-self: flex-start;
   color: #000;
 }
-
+.flexlist .procontenttitle{
+  text-align: left;
+}
 .flex_box .title {
   color: #000;
   font-size: 36rpx;
@@ -104,10 +108,12 @@ page {
 .flex_box .flexlisttime>view,.contentbox>view,.procontenttitle view{
   margin: 20rpx;
 }
+
 .procontenttitle{
   /* border-bottom: 1px dashed #8a8a8a; */
-  text-align: left;
+  text-align: center;
   padding:5px auto;
+  color: #377dff;
 }
 .colorblur image{
   width: 80px;
@@ -175,15 +181,17 @@ color: #ffe500;
 .tenderdocuments {
   text-align: center;
   width: 100%;
-  margin: 10px auto;
+  margin-top: 10px;
   background-color:#fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .tenderdocuments .procontent {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-size: 26rpx;
-  padding:5px auto;
+  padding:5px 10px;
 }
 .tenderdocuments .procontent .prosee {
   color: #6eb3ec;

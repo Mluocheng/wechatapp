@@ -43,6 +43,8 @@
   background-color: transparent;
   border-color: #2196f3;
   color: #fff;
+  padding-left:7px;
+  padding-right: 7px;
 }
 .hoverbtnsty{
   color: rgb(182, 182, 182)

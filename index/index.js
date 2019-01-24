@@ -83,8 +83,16 @@ Page({
     })
   },
   gotosetting: function () {
-    wx.navigateTo({
-      url: '../pages/pushsettings/pushsettings',
-    })
+    if (wx.getStorageSync("btn_show") == true) {
+      wx.navigateTo({
+        url: '../pages/pushsettings/pushsettings',
+      })
+    } else {
+      wx.showToast({
+        title: '您还没有登录哦！',
+        icon: 'none',
+        duration: 1000
+      })
+    } 
   },
 })

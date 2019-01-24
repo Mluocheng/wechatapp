@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    plVlue:'项目名称模糊搜索',
     projectlistdata: '',
     detailvalue: '', //搜索内容
     pagecurrent: 1,
@@ -45,7 +46,7 @@ Page({
     },
     {
       "projectRegion": "乐山",
-      "userid": "5",
+      "userid": "4",
       "pagecurrent": 1,
       "pagesize": 10,
       "logo":"leshan_icon_2.png",
@@ -53,11 +54,24 @@ Page({
     }
     ]
   },
-
+  onFocus: function (e) {
+    this.setData({
+      plVlue: " "
+    })
+  },
+  onBlur: function (e) {
+    this.setData({
+      plVlue: "项目名称模糊搜索"
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     var that = this;
     wx.request({
       data: {
@@ -134,6 +148,7 @@ Page({
   onReachBottom: function() {
     wx.showLoading({
       title: '加载中',
+      mask: true
     })
     var that = this;
     that.data.pagecurrent++;
@@ -246,6 +261,7 @@ Page({
   requestsearch: function(search, pagecurrent) {
     wx.showLoading({
       title: '加载中',
+      mask: true
     })
     var that = this;
     wx.request({
@@ -287,9 +303,10 @@ Page({
   cityclick: function (e) {
     wx.showLoading({
       title: '加载中',
+      mask: true
     })
     var that =this;
-    console.log(e.currentTarget.dataset.uid)
+    // console.log(e.currentTarget.dataset.uid)
     wx.request({
       data: {
         userId: wx.getStorageSync("userId"),
@@ -310,7 +327,7 @@ Page({
       fail: function () {
         wx.showToast({
           title: '网络出错啦！',
-          icon: 'fail',
+          icon: 'none',
           duration: 1000
         })
       }

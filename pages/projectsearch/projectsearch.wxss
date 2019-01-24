@@ -18,7 +18,7 @@
   width: 100%;
   height: 44px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-direction: row;
   align-items: center;
   z-index:999;
@@ -35,9 +35,11 @@ top:0;
   border-color: #377dff;
   color: #fff;
   border: none;
+  padding-left:7px;
+  padding-right: 7px;
 }
 .header .search {
-  width:50%;
+  width:55%;
   border-radius: 5px;
   height: 33px;
   background: rgba(255, 255, 255, 0.8);
@@ -143,7 +145,11 @@ page {
 }
 
 
-
+.section .requirement{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
 .section .requirement text {
   color: #fff;
   display: inline-block;
@@ -152,6 +158,11 @@ page {
   border-radius: 60rpx;
   text-align: center;
   margin-right: 20rpx;
+}
+.section .requirement .time{}
+.section .requirement .time image{
+  width: 12px;
+  height: 11px;
 }
 .section .item_conter {
   color: #000;

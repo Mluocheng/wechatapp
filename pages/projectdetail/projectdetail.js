@@ -36,8 +36,6 @@ Page({
         peojextdeataildata: res.data,
         contenststr: contentstr.replace(/\<br>/g, '\n')
       })
-      
-     
     }
   })
   },

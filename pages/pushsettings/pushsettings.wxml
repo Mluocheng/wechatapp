@@ -1,3 +1,4 @@
+<scroll-view class='pagecon'>
 <view class='page'>
   <view class="container" style="padding-top:{{statusBarHeight}}px">
     <image class='titileimg' src='../../images/inside_pg.png'>
@@ -62,3 +63,4 @@
     </form>
   </view>
 </view>
+</scroll-view>

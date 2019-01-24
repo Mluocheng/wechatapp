@@ -13,6 +13,7 @@ Page({
     phone: '', //用户输入的手机号
     blurvercode: '', //验证码
     jscode: '', //jscode
+    clearsession:false,
     // 用户个人信息
     userInfo: {
       avatarUrl: "",
@@ -106,6 +107,7 @@ Page({
                   console.log(res.data, res.data.userId)
                   //缓存userId
                   wx.setStorageSync('userId', res.data.userId)
+                  wx.setStorageSync('sessionId', res.data.sessionId)
                   // 判断是否是 首次登录
                   if (res.data.status == 0){
                     that.setData({
@@ -170,27 +172,65 @@ Page({
     })
   },
   //  clearstorage 清理缓存
-  clearstorage: function() {
-    wx.showToast({
-      title: '正在清理',
-      icon: 'loading',
-      duration: 5000,
-      mask: true,
-      complete: function() {
-        setTimeout(function() {
-          wx.showToast({
-            title: '清理成功',
-            icon: 'success',
-            mask: true
-          })
-        }, 5000)
-      }
+  clearstor:function(){
+    var that = this;
+    this.setData({
+      clearsession: true
     })
   },
-  gotosetting: function() {
-    wx.navigateTo({
-      url: '../pushsettings/pushsettings',
+  clearstorage: function() {
+    var that =this;
+    this.setData({
+      clearsession:false
     })
+    wx.showModal({
+      title: '温馨提示',
+      content: '可能需要一点时间，请耐心等待~',
+      showCancel:'false',
+      confirmText:'确定',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.showToast({
+            title: '正在清理',
+            icon: 'loading',
+            duration: 5000,
+            mask: true,
+            complete: function () {
+              setTimeout(function () {
+                wx.showToast({
+                  title: '清理成功',
+                  icon: 'success',
+                  mask: true
+                })
+              }, 3000)
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+   
+  },
+  outclearbox:function(){
+    console.log('stop user scroll it!');
+    return;
+  },
+  // 
+  gotosetting: function() {
+    if (wx.getStorageSync("btn_show") == true){
+      wx.navigateTo({
+        url: '../pushsettings/pushsettings',
+      })
+    }else{
+      wx.showToast({
+        title: '您还没有登录哦！',
+        icon:'none',
+        duration: 1000
+      })
+    } 
+    
   },
   gotohelp: function() {
     wx.navigateTo({
@@ -283,10 +323,11 @@ Page({
     };
     //判断 当提示错误信息文字不为空 即手机号输入有问题时提示用户错误信息 并且提示完之后一定要让按钮为可用状态 因为点击按钮时设置了只要点击了按钮就让按钮禁用的情况
     if (warn != null) {
-      wx.showModal({
-        title: '提示',
-        content: warn
-      })
+      wx.showToast({
+        title: warn,
+        icon: 'none',
+        duration: 1000
+      });
       that.setData({
         disabled: false,
         color: '#929fff'
@@ -335,6 +376,9 @@ Page({
       //  code: that.data.jscode,
         phone: that.data.phone,
         sendCode: that.data.blurvercode
+      },
+      header: {
+        "Cookie": "JSESSIONID=" + wx.getStorageSync("sessionId")
       },
       url: 'https://91jober.com/user/wechat/bindphone',
       success: function(res) {

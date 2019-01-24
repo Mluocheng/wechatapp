@@ -35,6 +35,8 @@ top:0;
   border-color: #377dff;
   color: #fff;
   border: none;
+  padding-left:7px;
+  padding-right: 7px;
 }
 .header .title{
   color: #fff;
@@ -66,5 +68,5 @@ page {
 }
 image{
   width: 100%;
-  height: 2500rpx;
+  height: 2800rpx;
 }

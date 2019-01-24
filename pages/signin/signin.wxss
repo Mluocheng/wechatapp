@@ -29,10 +29,13 @@
 
 page {
   display: block;
-  min-height: 100%;
+  height: 100%;
   background-color: rgb(243, 243, 243);
 }
-
+.pagecon{
+  height: 100%;
+overflow-y: hidden;
+}
 /*  */
 
 .box {
@@ -75,7 +78,20 @@ page {
   border-radius: 20px;
   font-size: 20rpx;
 }
-
+.codesign{
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  border-bottom: 1px solid #cacaca
+}
+.topbox .topbut .codesign button{
+  background-color: #ffd200;
+  border: none;
+  color: rgb(255, 255, 255);
+  white-space:nowrap;
+  width: 80px;
+  
+}
 .contentbox {
   display: flex;
   flex-direction: column;
@@ -114,7 +130,7 @@ page {
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 10px;
-  color: #dfdfdf;
+  color: #cacaca;
   font-size: 12px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -138,6 +154,46 @@ page {
   vertical-align: middle;
 }
 
-
-
 /*  */
+.modalclear{
+  position: fixed;
+  z-index: 999;
+  width: 70%;
+margin:0 auto; 
+left:0; 
+right:0; 
+top: 30%;
+}
+.modalclear .clearbgimg{
+  position: relative;
+}
+.modalclear .clearbox{
+  width:100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.modalclear .clearlogo{
+
+}
+.modalclear .clearlogo image{
+  width: 50px;
+  height: 70px;
+}
+.modalclear .warntext{
+  font-size: 24px;
+}
+.modalclear .clearcon{
+  font-size: 14px;
+  color: #a7a7a7;
+}
+.modalclear .clearbtn{
+  width:50%;
+}
+.modalclear .clearbtn image{
+  width: 100%;
+  height:30px;
+}

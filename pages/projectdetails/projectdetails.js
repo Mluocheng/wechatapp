@@ -32,7 +32,7 @@ Page({
       fail: function () {
         wx.showToast({
           title: '网络出错啦！',
-          icon: 'fail',
+          icon: 'none',
           duration: 1000
         })
       }
@@ -120,6 +120,7 @@ Page({
           //失败
           wx.showLoading({
             title: '加载失败',
+            icon:'none'
           })
           setTimeout(function() {
             wx.hideLoading()
@@ -130,7 +131,7 @@ Page({
         wx.hideLoading();
         wx.showToast({
           title: '网络出错啦！',
-          icon: 'fail',
+          icon: 'none',
           duration: 1000
         })
       }

@@ -1,3 +1,4 @@
+<!-- <scroll-view class="{{projectlistdata.data.data.onlyRegion == null?'pagecon':''}}"> -->
 <view class="container" style="padding-top:{{statusBarHeight}}px">
     <image class='titileimg' src='../../images/inside_pg.png'>
     <view class="header">
@@ -9,12 +10,33 @@
   </view>
 <view style='margin-top:{{statusBarHeight + 44}}px'></view>
 
-<view wx:if="{{btn_show}}" class="section box" wx:for="{{projectlistdata.data.onlyRegion}}" wx:key="{{item.pushTime}}">
+
+
+<view class='nothing' wx:if="{{!btn_show}}">
+  <view>
+    <image src='../../images/request_error_1@2x.png'></image>
+  </view>
+  <view>
+    这里还什么都没有哦
+  </view>
+  <view>
+  先登录试试！
+  </view>
+</view>
+<view class='nothing' wx:if="{{btn_show && projectlistdata.data.onlyRegion==null}}">
+  <view>
+    <image src='../../images/request_error_1@2x.png'></image>
+  </view>
+  <view>
+    暂时没有数据！
+  </view>
+</view>
+<view wx:if="{{btn_show && projectlistdata.data.onlyRegion != null}}" class="section box" wx:for="{{projectlistdata.data.onlyRegion}}" wx:key="{{item.pushTime}}">
+  <view class="flex-wrp">
   <view class="section_data">
   <image class='timeico' src='../../images/inside_icon_2.png'></image>
     {{item.pushTime}}
   </view>
-  <view class="flex-wrp">
     <view bindtap='projectlistclick' class="flex-item bgcolor" wx:for="{{item.pushList}}" wx:key="{{item.id}}" data-articleid="{{item.id}}">
       <view class='isCorrect' wx:if="{{item.isCorrect}}">
         <image src='../../images/inside_icon_5.png'></image>
@@ -41,24 +63,4 @@
     </view>
   </view>
 </view>
-
-<view class='nothing' wx:if="{{!btn_show}}">
-  <view>
-    <image src='../../images/request_error_1@2x.png'></image>
-  </view>
-  <view>
-    这里还什么都没有哦
-  </view>
-  <view>
-  先登录试试！
-  </view>
-</view>
-
-<view class='nothing' wx:if="{{btn_show && projectlistdata.data.onlyRegion==null}}">
-  <view>
-    <image src='../../images/request_error_1@2x.png'></image>
-  </view>
-  <view>
-    暂时没有数据！
-  </view>
-</view>
+<!-- </scroll-view> -->

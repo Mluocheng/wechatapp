@@ -80,7 +80,8 @@ Page({
     // 表单提交事件
 formSubmit(e){
   wx.showLoading({
-    title: '正在推送',
+    title: '正在设置',
+    mask: true
   })
   // console.log("发生submit事件，携带参数为：" + e.detail.value.input1 + e.detail.value.input2 + e.detail.value.input3)
   // getApp().globalData.pushsettingsdata.input1 = e.detail.value.input1;
@@ -105,7 +106,7 @@ formSubmit(e){
       if (res.data.resultcode == 1002) {
         //成功
         wx.showLoading({
-          title: '推送成功',
+          title: '设置成功',
         })
         setTimeout(function () {
           wx.hideLoading()

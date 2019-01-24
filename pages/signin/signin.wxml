@@ -1,93 +1,112 @@
-<view class="container" style="padding-top:{{statusBarHeight}}px">
-  <image class='titileimg' src='../../images/inside_pg.png'>
-    <view class="header">
+<scroll-view class='pagecon'>
+  <view class="container" style="padding-top:{{statusBarHeight}}px">
+    <image class='titileimg' src='../../images/inside_pg.png'>
+      <view class="header">
 
-    </view>
-  </image>
-</view>
-<view style='margin-top:{{statusBarHeight + 44}}px'></view>
+      </view>
+    </image>
+  </view>
+  <view style='margin-top:{{statusBarHeight + 44}}px'></view>
 
 
-<view class='box'>
-  <image class='topboxbg' src='../../images/hone_pg.png'>
-    <view class='topbox'>
-      <view class='topface'>
-        <image wx:if="{{btn_show}}" src='{{aurl || userInfo.avatarUrl}}'></image>
-        <image wx:else src="../../images/my_icon_7.png"></image>
-      </view>
-      <view class='topname'>
-        <text wx:if="{{btn_show}}">{{aname || userInfo.nickName}}</text>
-        <text wx:else>游客</text>
-      </view>
-      <view class='topbut'>
-        <button plain="true" bindtap='signout' wx:if="{{btn_show}}">退出登录</button>
-        <button plain="true" open-type="getUserInfo" bindgetuserinfo="userinfoclick" wx:else>登录/注册</button>
-        <!-- <button open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">获取手机号</button> -->
-        <modal hidden="{{hiddenmodalput}}" title="绑定电话号码" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
-          <view>
-            <input name="phone" placeholder='请输入手机号' placeholder-class='placesty' type='number' style='color:#333' maxlength="11" bindinput='blurPhone'></input>
-            <!-- <icon wx:if="{{ajxtrue}}" type="success" size="20" color="green" />
-           <icon wx:else type="cancel" size="40" size="20" color="red" /> -->
-            <button bindtap="bindButtonTap" disabled='{{disabled}}'>{{text}}</button>
-          </view>
-          <view>
-            <input placeholder='请输入验证码' placeholder-class='placesty' type='text' style='color:#333' maxlength="6" bindinput='blurVercode'></input>
-          </view>
-        </modal>
-      </view>
-    </view>
-  </image>
-</view>
+  <view class='box'>
+    <image class='topboxbg' src='../../images/hone_pg.png'>
+      <view class='topbox'>
+        <view class='topface'>
+          <image wx:if="{{btn_show}}" src='{{aurl || userInfo.avatarUrl}}'></image>
+          <image wx:else src="../../images/my_icon_7.png"></image>
+        </view>
+        <view class='topname'>
+          <text wx:if="{{btn_show}}">{{aname || userInfo.nickName}}</text>
+          <text wx:else>游客</text>
+        </view>
+        <view class='topbut'>
+          <button plain="true" bindtap='signout' wx:if="{{btn_show}}">退出登录</button>
+          <button plain="true" open-type="getUserInfo" bindgetuserinfo="userinfoclick" wx:else>登录/注册</button>
+          <!-- <button open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">获取手机号</button> -->
+          <modal hidden="{{hiddenmodalput}}" style='color:#000' title="账号绑定" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+            <view class='codesign'>
+              <input name="phone" placeholder='请输入手机号' placeholder-class='placesty' type='number' style='color:#333' maxlength="11" bindinput='blurPhone'>
+              </input>
 
-<view class='contentbox'>
-  <view class='contentlist' bindtap='gotohelp'>
-    <view class='contentlogo'>
-      <image src='../../images/my_icon_2.png'></image>
-    </view>
-    <view class='contentcont'>
-      <view class='contenttitle'>
-        应用指南
+            </view>
+            <view class='codesign'>
+              <view>
+                <input placeholder='请输入验证码' placeholder-class='placesty' type='text' style='color:#333' maxlength="6" bindinput='blurVercode'>
+                </input>
+              </view>
+              <view>
+                <button bindtap="bindButtonTap" disabled='{{disabled}}'>{{text}}</button>
+              </view>
+            </view>
+          </modal>
+        </view>
       </view>
-      <view class='contneirong'>
-        详细了解链筑APP操作流程
-      </view>
-    </view>
-    <view class='contentrightimg'>
-      <image src='../../images/my_icon_6.png'></image>
-    </view>
+    </image>
   </view>
 
-  <view class='contentlist' bindtap='clearstorage'>
-    <view class='contentlogo'>
-      <image src='../../images/my_icon_3.png'></image>
-    </view>
-    <view class='contentcont'>
-      <view class='contenttitle'>
-        清除缓存
+  <view class='contentbox'>
+    <view class='contentlist' bindtap='gotohelp'>
+      <view class='contentlogo'>
+        <image src='../../images/my_icon_2.png'></image>
       </view>
-      <view class='contneirong'>
-        清除缓存，减轻内存压力
+      <view class='contentcont'>
+        <view class='contenttitle'>
+          应用指南
+        </view>
+        <view class='contneirong'>
+          详细了解链筑APP操作流程
+        </view>
+      </view>
+      <view class='contentrightimg'>
+        <image src='../../images/my_icon_6.png'></image>
       </view>
     </view>
-    <view class='contentrightimg'>
-      <image src='../../images/my_icon_6.png'></image>
-    </view>
-  </view>
 
-  <view class='contentlist' bindtap='gotosetting'>
-    <view class='contentlogo'>
-      <image src='../../images/my_icon_4.png'></image>
-    </view>
-    <view class='contentcont'>
-      <view class='contenttitle'>
-        推送设置
+    <view class='contentlist' bindtap="clearstorage" catchtouchmove="outclearbox">
+      <view class='contentlogo'>
+        <image src='../../images/my_icon_3.png'></image>
       </view>
-      <view class='contneirong'>
-        设置关键词，精准推送项目
+      <view class='contentcont'>
+        <view class='contenttitle'>
+          清除缓存
+        </view>
+        <view class='contneirong'>
+          清除缓存，减轻内存压力
+        </view>
+      </view>
+      <view class='contentrightimg'>
+        <image src='../../images/my_icon_6.png'></image>
       </view>
     </view>
-    <view class='contentrightimg'>
-      <image src='../../images/my_icon_6.png'></image>
+
+    <!-- -->
+    <!-- <view  class='modalclear' wx:if="{{clearsession}}">
+<image class='clearbgimg' src='../../images/remove_pg.png'>
+<view class='clearbox'>
+   <view class='clearlogo'><image src='../../images/remove_icon_1.png'></image></view>
+   <view class='warntext'>温馨提示</view>
+   <view class='clearcon'>可能需要一点时间，请耐心等待~</view>
+   <view class='clearbtn' bindtap='clearstorage'><image src='../../images/remove_botton.png'></image></view>
+   </view>
+   </image>
+</view> -->
+
+    <view class='contentlist' bindtap='gotosetting'>
+      <view class='contentlogo'>
+        <image src='../../images/my_icon_4.png'></image>
+      </view>
+      <view class='contentcont'>
+        <view class='contenttitle'>
+          推送设置
+        </view>
+        <view class='contneirong'>
+          设置关键词，精准推送项目
+        </view>
+      </view>
+      <view class='contentrightimg'>
+        <image src='../../images/my_icon_6.png'></image>
+      </view>
     </view>
-  </view>
-</view>
+    </view>
+</scroll-view>
