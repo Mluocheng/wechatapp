@@ -60,7 +60,7 @@
       - 招标文件 -
     </view>
     <view class='procontent' wx:for="{{item.files}}" wx:key="{{item.filename}}">
-      <view>招标文件1</view>
+      <view>招标文件{{index+1}}</view>
       <view>
         <navigator class='prosee' url='projectpage' hover-class="hoversty">
           查看

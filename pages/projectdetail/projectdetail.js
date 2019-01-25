@@ -14,6 +14,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     var that= this;
     // 项目 id
     that.setData({
@@ -27,6 +31,7 @@ Page({
     },
     url: 'https://91jober.com/user/article3/findProjectById3',
     success:function(res){
+      wx.hideLoading();
       if (res.data.data.article[0].files.length != 0){
         wx.setStorageSync("failurl", res.data.data.article[0].files[0].fileurl);
       }
@@ -35,6 +40,13 @@ Page({
       that.setData({
         peojextdeataildata: res.data,
         contenststr: contentstr.replace(/\<br>/g, '\n')
+      })
+    },
+    fail: function () {
+      wx.showToast({
+        title: '网络出错！',
+        icon: 'none',
+        duration: 2000
       })
     }
   })

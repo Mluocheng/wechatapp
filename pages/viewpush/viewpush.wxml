@@ -23,7 +23,7 @@
   先登录试试！
   </view>
 </view>
-<view class='nothing' wx:if="{{btn_show && projectlistdata.data.onlyRegion==null}}">
+<view class='nothing' wx:if="{{btn_show && projectlistdata.data.onlyRegion.length == 0}}">
   <view>
     <image src='../../images/request_error_1@2x.png'></image>
   </view>
@@ -31,7 +31,7 @@
     暂时没有数据！
   </view>
 </view>
-<view wx:if="{{btn_show && projectlistdata.data.onlyRegion != null}}" class="section box" wx:for="{{projectlistdata.data.onlyRegion}}" wx:key="{{item.pushTime}}">
+<view wx:if="{{btn_show && projectlistdata.data.onlyRegion.length != 0}}" class="section box" wx:for="{{projectlistdata.data.onlyRegion}}" wx:key="{{item.pushTime}}">
   <view class="flex-wrp">
   <view class="section_data">
   <image class='timeico' src='../../images/inside_icon_2.png'></image>

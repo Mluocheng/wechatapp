@@ -132,7 +132,7 @@ Page({
         wx.showToast({
           title: '网络出错啦！',
           icon: 'none',
-          duration: 1000
+          duration: 2000
         })
       }
     })

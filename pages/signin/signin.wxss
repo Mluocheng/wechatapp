@@ -77,6 +77,10 @@ overflow-y: hidden;
   color: rgb(218, 218, 218);
   border-radius: 20px;
   font-size: 20rpx;
+  width: 160rpx;
+}
+button[disabled][type="default"],wx-button[disabled]:not([type]) {
+background:transparent;
 }
 .codesign{
   display: flex;

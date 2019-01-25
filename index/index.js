@@ -76,7 +76,6 @@ Page({
     })
 
   },
-  //获取焦点事件 
   bangfocusgoto: function() {
     wx.navigateTo({
       url: '../pages/projectsearch/projectsearch'

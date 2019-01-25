@@ -16,10 +16,10 @@
 <image class='topboxbg' src='../images/hone_pg.png'>
   <view class='topbox'>
     <view class='tbtitle'>链筑-项目整合平台</view>
-    <view class="search">
+    <view class="search" bindtap='bangfocusgoto'>
       <icon type='search' color="#1975ff"></icon>
       <image src='../images/inside_icon_4.png'></image>
-      <input bindfocus="bangfocusgoto" type='text' placeholder='项目名称模糊搜索' placeholder-class='centerplaceholder'></input>
+      <view type='text' class='centerplaceholder'>项目名称模糊搜索</view>
     </view>
     <view class='example'>
       示范： 建筑项目 设计

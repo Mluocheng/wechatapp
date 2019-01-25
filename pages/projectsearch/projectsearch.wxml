@@ -7,7 +7,7 @@
       <view class="search">
         <icon type='search' color="#1975ff"></icon>
         <image src='../../images/inside_icon_4.png'></image>
-        <input focus='false' type='text' placeholder='{{plVlue}}' placeholder-class='centerplaceholder' bindconfirm="confirmvalue" bindblur="blurvalue" bindfocus='onFocus' bindblur='onBlur'></input>
+        <input focus='false' type='text' placeholder='{{plVlue}}' placeholder-class='centerplaceholder' bindconfirm="confirmvalue" cursor-spacing='-30' adjust-position='false' bindblur="blurvalue" bindfocus='onFocus'></input>
       </view>
       <view style='width:52px'></view>
     </view>
@@ -54,5 +54,14 @@
         </view>
       </view>
     </view>
+  </view>
+</view>
+
+<view class='nothing' wx:if="{{contenterror}}">
+  <view>
+    <image src='../../images/request_error_1@2x.png'></image>
+  </view>
+  <view>
+    {{errorcontent}}
   </view>
 </view>

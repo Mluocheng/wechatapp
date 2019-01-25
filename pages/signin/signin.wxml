@@ -22,7 +22,7 @@
         </view>
         <view class='topbut'>
           <button plain="true" bindtap='signout' wx:if="{{btn_show}}">退出登录</button>
-          <button plain="true" open-type="getUserInfo" bindgetuserinfo="userinfoclick" wx:else>登录/注册</button>
+          <button plain="true" disabled='{{buttonClicked}}' hover-stop-propagation="true" open-type="getUserInfo" bindgetuserinfo="userinfoclick" wx:else>登录/绑定</button>
           <!-- <button open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">获取手机号</button> -->
           <modal hidden="{{hiddenmodalput}}" style='color:#000' title="账号绑定" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
             <view class='codesign'>

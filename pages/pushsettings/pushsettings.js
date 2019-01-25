@@ -124,6 +124,13 @@ formSubmit(e){
         }, 1500)
       }
 
+    },
+    fail: function () {
+      wx.showToast({
+        title: '网络出错！',
+        icon: 'none',
+        duration: 2000
+      })
     }
   })
 },

@@ -120,6 +120,9 @@ Page({
   },
   //封装请求
   requestfunction:function(){
+    wx.showLoading({
+      title: '加载中',
+    })
     var that = this;
     wx.request({
       data: {
@@ -127,16 +130,18 @@ Page({
       },
       url: 'https://91jober.com/user/push3/findPushTwo3',
       success: function (res) {
+        wx.hideLoading();
         if (res.data.resultcode == 1002) {
           //成功
           wx.hideLoading();
           that.setData({
             projectlistdata: res.data
           })
-          console.log(res.data.data.onlyRegion == null)
-          if (res.data.data.onlyRegion == null){
-            wx.setStorageSync("showcontent", true)
-          }
+          // console.log(res.data.data.onlyRegion.length)
+          // if (res.data.data.onlyRegion.length == 0){
+          //   console.log("null")
+          //   wx.setStorageSync("showcontent", true)
+          // }
         }else{
           //失败
           wx.showLoading({
@@ -147,7 +152,15 @@ Page({
           }, 1500)
         }
         
+      },
+      fail:function(){
+        wx.showToast({
+          title: '网络出错！',
+          icon: 'none',
+          duration: 2000
+        })
       }
+      
     })
   }
 })

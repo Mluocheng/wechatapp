@@ -49,7 +49,7 @@ top:0;
 .header .search icon{height: 18px;width: 18px;display: inline-block;margin: auto 15px;}
 .header .search image{width: 3px;height: 20px;margin-right: 15px;}
 .header .search input{width: 80%;display: inline-block;height: 100%;}
-.header .search .centerplaceholder{font-size: 14px;color: rgb(170, 170, 170)}
+.header .search .centerplaceholder{font-size: 14px;color: rgb(170, 170, 170);}
 .hoverbtnsty {
   color: rgb(182, 182, 182);
 }
@@ -209,4 +209,17 @@ page {
 .citybox .citylistcity{
   font-size: 15px;
 }
-.citybox{}
+
+
+.nothing {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #949494;
+  font-size: 28rpx;
+  align-items: center;
+}
+
+.nothing image {
+  margin: 60rpx auto;
+}

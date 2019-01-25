@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    errorcontent:'网络出错，请重试！',
+    contenterror:false,
     plVlue:'项目名称模糊搜索',
     projectlistdata: '',
     detailvalue: '', //搜索内容
@@ -54,16 +56,7 @@ Page({
     }
     ]
   },
-  onFocus: function (e) {
-    this.setData({
-      plVlue: " "
-    })
-  },
-  onBlur: function (e) {
-    this.setData({
-      plVlue: "项目名称模糊搜索"
-    })
-  },
+ 
   /**
    * 生命周期函数--监听页面加载
    */
@@ -94,6 +87,9 @@ Page({
           title: '网络出错啦！',
           icon: 'fail',
           duration: 1000
+        })
+        that.setData({
+          contenterror: true
         })
       }
     })
@@ -163,7 +159,7 @@ Page({
         },
         url: 'https://91jober.com/user/article3/findProjectTwo3',
         success: function (res) {
-          if (res.data.resultcode == 1002) {
+          if (res.data.resultcode == 1002 && res.data.data.onlyRegion.length != 0) {
             //成功
             wx.hideLoading();
             // var arrpush = that.data.project.data.onlyRegion;
@@ -175,7 +171,12 @@ Page({
               projectlistdata: that.data.projectlistdata,
             })
             //  console.log(that.data.project)
-          } else {
+          } else if (res.data.resultcode == 1002 && res.data.data.onlyRegion.length == 0){
+            wx.hideLoading();
+            that.setData({
+              contenterror: true,
+            })
+          }else{
             //失败
             wx.showLoading({
               title: '加载失败',
@@ -184,6 +185,13 @@ Page({
               wx.hideLoading()
             }, 1500)
           }
+        },
+        fail: function () {
+          wx.showToast({
+            title: '网络出错！',
+            icon: 'none',
+            duration: 2000
+          })
         }
       })
     } else if (that.data.projectRegionCity.length != 0){
@@ -206,6 +214,7 @@ Page({
             }
             that.setData({
               projectlistdata: that.data.projectlistdata,
+              contenterror: false,
             })
             //  console.log(that.data.project)
           } else {
@@ -220,7 +229,7 @@ Page({
         }
       })
     }
-    
+    wx.stopPullDownRefresh();
   },
 
   /**
@@ -246,9 +255,17 @@ Page({
     console.log("发生表单重置事件")
   },
   //搜索 离开焦点 及 点击用户点击确认时
+  onFocus: function (e) {
+    this.setData({
+      plVlue: " "
+    })
+  },
   blurvalue: function(event) {
     console.log(event.detail.value.length)
     var that = this;
+    that.setData({
+      plVlue: "项目名称模糊搜索"
+    })
     if (event.detail.value.length != 0){
       that.setData({
         detailvalue: event.detail.value,
@@ -272,13 +289,22 @@ Page({
       },
       url: 'https://91jober.com/user/article3/findProjectTwo3',
       success: function(res) {
-        if (res.data.resultcode == 1002) {
+        console.log(res.data.data.onlyRegion.length)
+        if (res.data.resultcode == 1002 && res.data.data.onlyRegion.length != 0) {
           //成功
           wx.hideLoading();
           that.setData({
-            projectlistdata: res.data
+            projectlistdata: res.data,
+            contenterror: false,
           })
-        } else {
+        } else if (res.data.data.onlyRegion.length == 0){
+          wx.hideLoading();
+          that.setData({
+            projectlistdata: "",
+            contenterror: true,
+            errorcontent:'暂时没有您搜索的内容，请重新输入！'
+          })
+        }else{
           //失败
           wx.showLoading({
             title: '加载失败',
@@ -287,8 +313,17 @@ Page({
             wx.hideLoading()
           }, 1500)
         }
-
         console.log(res)
+      },
+      fail: function () {
+        wx.showToast({
+          title: '网络出错啦！',
+          icon: 'none',
+          duration: 1000
+        })
+        that.setData({
+          contenterror: true
+        })
       }
     })
   },
@@ -321,7 +356,8 @@ Page({
           projectlistdata: res.data,
           projectRegionCity: e.currentTarget.dataset.projectregion,
           detailvalue: '',
-          usid: e.currentTarget.dataset.uid
+          usid: e.currentTarget.dataset.uid,
+          contenterror: false,
         })
       },
       fail: function () {
@@ -329,6 +365,9 @@ Page({
           title: '网络出错啦！',
           icon: 'none',
           duration: 1000
+        })
+        that.setData({
+          contenterror: true
         })
       }
     })

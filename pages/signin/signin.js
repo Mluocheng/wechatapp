@@ -4,6 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    buttonClicked:false,
     // 手机号输入框
     hiddenmodalput: true,
     ajxtrue: false,
@@ -80,22 +81,33 @@ Page({
   onShareAppMessage: function() {
 
   },
+  buttonclick:function(self){
+    self.setData({
+      buttonClicked:true,
+    })
+    setTimeout(function(){
+      self.setData({
+        buttonClicked: false,
+      })
+    },2000)
+  },
   // 登录按钮 获取用户头像 昵称
   userinfoclick: function(detail) {
     var that = this;
-    //https://api.weixin.qq.com/sns/jscode2session?appid=wx1e4785fa849e936c&secret=87d8d4e95b6c9237fd4d363ddfb82f4d&js_code=023PdVz71VHbBM1LPtz71ZGFz71PdVzk&grant_type=authorization_code
+    that.buttonclick(this);
     wx.showModal({
       title: '授权登录',
       content: '授权登录获取更多功能哦！',
       success: function(res) {
         // 用户头像昵称
         if (res.confirm) {
+          wx.showLoading({});
           wx.login({
             success: function(res) {
               that.setData({
                 jscode: res.code
               })
-              console.log(res.code)
+              console.log("code="+res.code)
               // wx.setStorageSync("rescode", res.code);
               wx.request({
                 data: {
@@ -104,7 +116,8 @@ Page({
                 method: 'GET',
                 url: 'https://91jober.com/user/wechat/login',
                 success: function(res) {
-                  console.log(res.data, res.data.userId)
+                  wx.hideLoading()
+                  console.log("userid=" + res.data.userId)
                   //缓存userId
                   wx.setStorageSync('userId', res.data.userId)
                   wx.setStorageSync('sessionId', res.data.sessionId)
@@ -114,7 +127,7 @@ Page({
                       hiddenmodalput: false
                     })
                   } else {
-                    console.log("已绑定登录")
+                     console.log("已绑定登录")
                     wx.getUserInfo({
                       success: function(res) {
                         wx.setStorageSync('avatUrl', res.userInfo.avatarUrl)
@@ -130,6 +143,13 @@ Page({
                       }
                     })
                   }
+                },
+                fail: function () {
+                  wx.showToast({
+                    title: '网络出错！',
+                    icon: 'none',
+                    duration: 2000
+                  })
                 }
               })
             }
@@ -418,8 +438,12 @@ Page({
         }
 
       },
-      fail: function(res) {
-        console.log(res.data)
+      fail: function () {
+        wx.showToast({
+          title: '网络出错！',
+          icon: 'none',
+          duration: 2000
+        })
       }
     })
 

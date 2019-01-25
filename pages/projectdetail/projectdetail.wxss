@@ -194,13 +194,12 @@ color: #ffe500;
   padding:5px 10px;
 }
 .tenderdocuments .procontent .prosee {
-  color: #6eb3ec;
-  border: 1px solid #6eb3ec;
+  color: #377dff;
+  border: 1px solid #377dff;
   border-radius: 10px;
   width: 50px;
 }
 
 .hoversty {
-  background-color: #6eb3ec;
-  color: #fff;
+ background-color: rgb(243, 243, 243);
 }
